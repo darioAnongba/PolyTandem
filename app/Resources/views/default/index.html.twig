@@ -1,6 +1,16 @@
 {% extends 'base.html.twig' %}
 
+
+
 {% block pageContent %}
+
+    {% embed 'sidebar.html.twig' %}
+        {% block home_active %}
+            class="active"
+        {% endblock %}
+    {%  endembed %}
+
+
     <div class="page-content">
         <div class="content">
             <!-- BEGIN PAGE TITLE -->
@@ -91,10 +101,4 @@
             <!-- END PLACE PAGE CONTENT HERE -->
         </div>
     </div>
-{% endblock %}
-
-
-{% block home_active %}
-
-    active
 {% endblock %}

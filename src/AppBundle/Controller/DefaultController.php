@@ -15,4 +15,12 @@ class DefaultController extends Controller
     {
         return $this->render('default/index.html.twig', []);
     }
+
+    /**
+     * @Route("/", name="video")
+     */
+    public function videoAction(Request $request)
+    {
+        return $this->render('default/video.html.twig', []);
+    }
 }

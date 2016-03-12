@@ -35,8 +35,8 @@
             </li>
             <!-- END BADGE LINK -->
             <!-- BEGIN SINGLE LINK -->
-            <li class="">
-                <a href="user-profile.html">
+            <li {% block user_active %} {% endblock %}>
+                <a href="{{ path('user-profile') }}">
                     <i class="fa fa-user"></i>
                     <span class="title">Profile</span>
                 </a>

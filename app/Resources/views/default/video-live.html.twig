@@ -2,57 +2,26 @@
 
 {% block pageContent %}
     <!-- BEGIN PAGE CONTAINER-->
+
     <div class="page-content">
         <div class="content">
             <!-- BEGIN PAGE TITLE -->
-
-            <!-- END PAGE TITLE -->
-            <!-- BEGIN PlACE PAGE CONTENT HERE -->
             <div class="row">
                 <div class="col-md-8">
-                    <div class="grid simple ">
-                        <div class="grid-title">
-                            <h4>Video chat</h4>
-                            <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
-                        </div>
-                        <div class="grid-body">
-                            <h3>Let's start a <span class="semi-bold">chat ! </span></h3>
-                            <br>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <p> Which language do you speak ?</p>
-                                    <select id="source" style="width:100%">
-                                        <option value="FR">Français</option>
-                                        <option value="EN">English</option>
-                                    </select>
-                                </div>
-                                <div class="col-md-6">
-                                    <p> And which would you improve ?</p>
-                                    <select id="source" style="width:100%">
-                                        <option value="FR">Français</option>
-                                        <option value="EN">English</option>
-                                    </select>
-                                </div>
-                            </div>
-
-                            <br>
-
-
-                            <a href="{{ path('video-live') }}">
-                                <button type="button" class="btn btn-primary btn-cons btn-block" >Find a chatter</button>
-                            </a>
-                        </div>
+                    <div class="grid simple">
+                        <!-- FIX ME: scale the grid -->
+                        <iframe id="iframe_id" src="http://apprtc.appspot.com/r/100713109" width=700 height=500> </iframe>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="grid simple ">
                         <div class="grid-title">
-                            <h4>Game</h4>
+                            <h4>Let's play a game ! </h4>
                             <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
                         </div>
                         <div class="grid-body">
                             <div class="scroller scrollbar-hidden" data-height="220px">
-                                <h3>Let's play a <span class="semi-bold">game ! </span></h3>
+                                <h3>Scroll is <span class="semi-bold">hidden</span></h3>
                                 <h4><span class="semi-bold">Open Me</span>, Light , <span class="semi-bold">Bold</span> , <i>Everything</i></h4>
                                 <p>The overflow is clipped, and the rest of the content will be invisible, Play it ». scroll, The overflow is clipped, but a scroll-bar is added to see the rest of the </p>
                                 <p> default, the textarea element comes with a vertical scrollbar (and maybe even a horizontal scrollbar). This vertical scrollbar enables the user to continue entering and reviewing their text (by scrolling up and down).</p>
@@ -66,9 +35,9 @@
         </div>
     </div>
     <!-- END PAGE CONTAINER -->
-
 {% endblock %}
 
 {% block video_active %}
     class="active"
 {% endblock %}
+

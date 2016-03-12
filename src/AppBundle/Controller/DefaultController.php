@@ -23,4 +23,20 @@ class DefaultController extends Controller
     {
         return $this->render('default/video.html.twig', []);
     }
+
+    /**
+     * @Route("/video-live", name="video-live")
+     */
+    public function videoLiveAction(Request $request)
+    {
+        return $this->render('default/video-live.html.twig', []);
+    }
+
+    /**
+     * @Route("/user-profile", name="user-profile")
+     */
+    public function userProfileAction(Request $request)
+    {
+        return $this->render('default/user-profile.html.twig', []);
+    }
 }

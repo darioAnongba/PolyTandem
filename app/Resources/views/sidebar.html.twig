@@ -18,62 +18,30 @@
         <p class="menu-title">BROWSE</p>
         <ul>
             <!-- BEGIN SELECTED LINK -->
-            <li class="start active">
-                <a href="#">
+            <li {% block home_active %} {% endblock %}>
+                <a href="{{ path('homepage') }}">
                     <i class="icon-custom-home"></i>
-                    <span class="title">Link 1</span>
+                    <span class="title">Home</span>
                     <span class="selected"></span>
-                    <span class="badge badge-important pull-right">5</span>
                 </a>
             </li>
             <!-- END SELECTED LINK -->
             <!-- BEGIN BADGE LINK -->
-            <li class="">
-                <a href="#">
-                    <i class="fa fa-envelope"></i>
-                    <span class="title">Link 2</span>
-                    <span class="badge badge-disable pull-right">203</span>
+            <li {% block video_active %} {% endblock %}>
+                <a href="{{ path('video') }}">
+                    <i class="fa fa-video-camera"></i>
+                    <span class="title">Chat</span>
                 </a>
             </li>
             <!-- END BADGE LINK -->
             <!-- BEGIN SINGLE LINK -->
             <li class="">
-                <a href="#">
-                    <i class="fa fa-flag"></i>
-                    <span class="title">Link 3</span>
+                <a href="user-profile.html">
+                    <i class="fa fa-user"></i>
+                    <span class="title">Profile</span>
                 </a>
             </li>
             <!-- END SINGLE LINK -->
-            <!-- BEGIN ONE LEVEL MENU -->
-            <li class="">
-                <a href="javascript:;">
-                    <i class="icon-custom-ui"></i>
-                    <span class="title">Link 4</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="#">Sub Link 1</a></li>
-                </ul>
-            </li>
-            <!-- END ONE LEVEL MENU -->
-            <!-- BEGIN TWO LEVEL MENU -->
-            <li class="">
-                <a href="javascript:;">
-                    <i class="fa fa-folder-open"></i>
-                    <span class="title">Link 5</span>
-                    <span class="arrow"></span>
-                </a>
-                <ul class="sub-menu">
-                    <li><a href="javascript:;">Sub Link 1</a></li>
-                    <li>
-                        <a href="javascript:;"><span class="title">Sub Link 2</span><span class="arrow "></span></a>
-                        <ul class="sub-menu">
-                            <li><a href="javascript:;">Sub Link 1</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <!-- END TWO LEVEL MENU -->
         </ul>
         <!-- END SIDEBAR MENU -->
         <!-- BEGIN SIDEBAR WIDGETS -->

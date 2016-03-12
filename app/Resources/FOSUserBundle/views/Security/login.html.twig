@@ -7,108 +7,50 @@
 <body class="error-body no-top lazy"  data-original="{{ asset('frontend/assets/img/work.jpg') }}"  style="background-image: url('{{ asset('frontend/assets/img/work.jpg') }}')">
 
 <div class="container">
-<div class="row login-container animated fadeInUp">
-    <div class="col-md-7 col-md-offset-2 tiles white no-padding">
-        <div class="p-t-30 p-l-40 p-b-20 xs-p-t-10 xs-p-l-10 xs-p-b-10">
-            <h2 class="normal">
-                Sign in to webarch
-            </h2>
-            <p>
-                Use Facebook, Twitter or your email to sign in.<br>
-            </p>
-            <p class="p-b-20">
-                Sign up Now! for webarch accounts, it's free and always will be..
-            </p>
-            <div role="tablist">
-                <a href="#tab_login" class="btn btn-primary btn-cons" role="tab" data-toggle="tab">Login</a> or&nbsp;&nbsp;
-                <a href="#tab_register" class="btn btn-info btn-cons" role="tab" data-toggle="tab">Create an account</a>
+    <div class="row login-container animated fadeInUp">
+        <div class="col-md-7 col-md-offset-2 tiles white no-padding">
+            <div class="p-t-30 p-l-40 p-b-20 xs-p-t-10 xs-p-l-10 xs-p-b-10">
+                <h2 class="center-text">Sign in to <img src="{{ asset('frontend/img/logo.png') }}" alt="" height="50"></h2>
+                <p>Use your username and password to Sign in<br></p>
             </div>
-        </div>
-        <div class="tiles grey p-t-20 p-b-20 no-margin text-black tab-content">
-            <div role="tabpanel" class="tab-pane active" id="tab_login">
-                <form class="animated fadeIn validate" id="" name="" >
-                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
-                        <div class="col-md-6 col-sm-6">
-                            <input class="form-control" id="login_username" name="login_username" placeholder="Username" type="email" required>
+            <div class="tiles grey p-t-20 p-b-20 no-margin text-black tab-content">
+                <div role="tabpanel" class="tab-pane active" id="tab_login">
+                    <form class="animated fadeIn validate" action="{{ path("fos_user_security_check") }}" method="post" >
+                        {% if error %}
+                            <p>{{ error.messageKey|trans(error.messageData, 'security') }}</p>
+                        {% endif %}
+                        <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                            <div class="col-md-6 col-sm-6">
+                                <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'security.login.username'|trans }}"/>
+                            </div>
+                            <div class="col-md-6 col-sm-6">
+                                <input type="password" id="password" name="_password" required="required" placeholder="{{ 'security.login.password'|trans }}"/>
+                            </div>
+                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
                         </div>
-                        <div class="col-md-6 col-sm-6">
-                            <input class="form-control" id="login_pass" name="login_pass" placeholder="Password" type="password" required>
-                        </div>
-                    </div>
-                    <div class="row p-t-10 m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
-                        <div class="control-group col-md-10">
-                            <div class="checkbox checkbox check-success">
-                                <a href="#">Trouble login in?</a>&nbsp;&nbsp; <input id="checkbox1" type="checkbox" value="1"> <label for=
-                                                                                                                                      "checkbox1">Keep me reminded</label>
+                        <div class="row p-t-10 m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                            <div class="control-group col-md-10">
+                                <div class="checkbox checkbox check-success">
+                                    <a href="{{ path('fos_user_resetting_request') }}">Forgot password ?</a>
+                                    &nbsp;&nbsp;
+                                    <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
+                                    <label for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </form>
-            </div>
-            <div role="tabpanel" class="tab-pane" id="tab_register">
-                <form class="animated fadeIn validate" id="" name="">
-                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
-                        <div class="col-md-6 col-sm-6">
-                            <input class="form-control" id="reg_username" name="reg_username" placeholder="Username" type="text" required>
+                        <div class="row p-t-10 m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
+                            <div class="control-group col-md-10">
+                                <input type="submit" class="btn btn-success" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
+                            </div>
                         </div>
-                        <div class="col-md-6 col-sm-6">
-                            <input class="form-control" id="reg_pass" name="reg_pass" placeholder="Password" type="password" required>
-                        </div>
-                    </div>
-                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
-                        <div class="col-md-12">
-                            <input class="form-control" id="reg_mail" name="reg_mail" placeholder="Mailing Address" type="email" required>
-                        </div>
-                    </div>
-                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
-                        <div class="col-md-6 col-sm-6">
-                            <input class="form-control" id="reg_first_Name" name="reg_first_Name" placeholder="First Name" type="text" required>
-                        </div>
-                        <div class="col-md-6 col-sm-6">
-                            <input class="form-control" id="reg_first_Name" name="reg_first_Name" placeholder="Last Name" type="text" required>
-                        </div>
-                    </div>
-                    <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
-                        <div class="col-md-12">
-                            <input class="form-control" id="reg_email" name="reg_email" placeholder="Email" type="email" required>
-                        </div>
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
 </div>
-</div>
 
-<section class="cover fullscreen image-bg overlay">
-        <div class="background-image-holder">
-            <img alt="image" class="background-image" src="{{ asset('frontend/img/dating-background.jpg') }}" />
-        </div>
-        <div class="container v-align-transform">
-            <div class="row">
-                <div class="col-md-4 col-md-offset-4 col-sm-8 col-sm-offset-2">
-                    <div class="feature bordered text-center">
-                        <h4 class="uppercase">Login Here</h4>
-                        {% if error %}
-                            <p>{{ error.messageKey|trans(error.messageData, 'security') }}</p>
-                        {% endif %}
-                        <form action="{{ path("fos_user_security_check") }}" method="post" class="text-left">
-                            <input type="text" id="username" name="_username" value="{{ last_username }}" required="required" placeholder="{{ 'security.login.username'|trans }}"/>
-                            <input type="password" id="password" name="_password" required="required" placeholder="{{ 'security.login.password'|trans }}"/>
-                            <input type="checkbox" id="remember_me" name="_remember_me" value="on" />
-                            <label style="color: #fff;" for="remember_me">{{ 'security.login.remember_me'|trans }}</label>
-                            <input type="hidden" name="_csrf_token" value="{{ csrf_token }}" />
-                            <input type="submit" id="_submit" name="_submit" value="{{ 'security.login.submit'|trans }}" />
-                        </form>
-                        <p class="mb0">Forgot your password?
-                            <a href="{{ path('fos_user_resetting_request') }}">Click Here To Reset</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+{% include 'javascripts.html.twig' %}
 
-    {% include 'javascripts.html.twig' %}
 </body>
 {% endblock %}

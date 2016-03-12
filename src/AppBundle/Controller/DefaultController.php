@@ -29,6 +29,7 @@ class DefaultController extends Controller
      */
     public function videoLiveAction(Request $request)
     {
+
         return $this->render('default/video-live.html.twig', []);
     }
 

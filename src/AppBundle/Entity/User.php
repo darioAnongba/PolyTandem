@@ -60,12 +60,14 @@ class User extends BaseUser
     protected $city;
 
     /**
-     * @var array
+     * @var string
      *
-     * @ORM\Column(name="spoken_languages", type="simple_array")
+     * @ORM\Column(name="language", type="string", length=255)
+     * @Assert\NotBlank(groups={"Registration", "Profile"})
+     * @Assert\Language()
      *
      */
-    protected $spokenLanguages;
+    protected $language;
 
     /**
      * @var LearningLanguage
@@ -84,7 +86,7 @@ class User extends BaseUser
     /**
      * @var integer
      *
-     * @ORM\Column(name="number_of_voters", type="integer", nullable=true)
+     * @ORM\Column(name="number_of_voters", type="integer")
      */
     protected $numberOfVoters;
 
@@ -92,7 +94,7 @@ class User extends BaseUser
      * @var User
      *
      * @ORM\ManyToMany(targetEntity="AppBundle\Entity\User")
-     * @ORM\OrderBy({"name" = "ASC"})
+     * @ORM\OrderBy({"lastName" = "ASC"})
      */
     protected $friends;
 
@@ -102,10 +104,10 @@ class User extends BaseUser
         parent::__construct();
 
         $this->reputation = '0.0';
+        $this->numberOfVoters = 0;
         $this->learningLanguages = new ArrayCollection();
-        $this->spokenLanguages = array();
+        $this->friends = new ArrayCollection();
     }
-
 
     /**
      * Set firstName
@@ -204,27 +206,27 @@ class User extends BaseUser
     }
 
     /**
-     * Set spokenLanguages
+     * Set language
      *
-     * @param array $spokenLanguages
+     * @param string $language
      *
      * @return User
      */
-    public function setSpokenLanguages($spokenLanguages)
+    public function setLanguage($language)
     {
-        $this->spokenLanguages = $spokenLanguages;
+        $this->language = $language;
 
         return $this;
     }
 
     /**
-     * Get spokenLanguages
+     * Get language
      *
-     * @return array
+     * @return string
      */
-    public function getSpokenLanguages()
+    public function getLanguage()
     {
-        return $this->spokenLanguages;
+        return $this->language;
     }
 
     /**

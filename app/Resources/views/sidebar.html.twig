@@ -4,12 +4,9 @@
     <div class="page-sidebar-wrapper scrollbar-dynamic" id="main-menu-wrapper">
         <!-- BEGIN MINI-PROFILE -->
         <div class="user-info-wrapper">
-            <div class="profile-wrapper">
-                <img src="assets/img/profiles/avatar.jpg" alt="" data-src="assets/img/profiles/avatar.jpg" data-src-retina="assets/img/profiles/avatar2x.jpg" width="69" height="69" />
-            </div>
             <div class="user-info">
                 <div class="greeting">Welcome</div>
-                <div class="username">John <span class="semi-bold">Smith</span></div>
+                <div class="username">{{ app.user.firstName }} <span class="semi-bold">{{ app.user.lastName }}</span></div>
                 <div class="status">Status
                     <a href="#">
                         <div class="status-icon green"></div>Online</a>
@@ -18,7 +15,7 @@
         </div>
         <!-- END MINI-PROFILE -->
         <!-- BEGIN SIDEBAR MENU -->
-        <p class="menu-title">BROWSE<span class="pull-right"><a href="javascript:;"><i class="fa fa-refresh"></i></a></span></p>
+        <p class="menu-title">BROWSE</p>
         <ul>
             <!-- BEGIN SELECTED LINK -->
             <li class="start active">
@@ -80,33 +77,6 @@
         </ul>
         <!-- END SIDEBAR MENU -->
         <!-- BEGIN SIDEBAR WIDGETS -->
-        <div class="side-bar-widgets">
-            <!-- BEGIN FOLDER WIDGET -->
-            <p class="menu-title">FOLDER<span class="pull-right"><a href="#" class="create-folder"><i class="icon-plus"></i></a></span></p>
-            <ul class="folders">
-                <li>
-                    <a href="#">
-                        <div class="status-icon green"></div>Task 1</a>
-                </li>
-                <!-- BEGIN HIDDEN INPUT BOX (FOR ADD FOLDER LINK) -->
-                <li class="folder-input" style="display:none">
-                    <input type="text" placeholder="Name of folder" class="no-boarder folder-name" name="" id="folder-name">
-                </li>
-                <!-- END HIDDEN INPUT BOX (FOR ADD FOLDER LINK) -->
-            </ul>
-            <!-- END FOLDER WIDGET -->
-            <!-- BEGIN PROJECTS WIDGET -->
-            <p class="menu-title">PROJECTS</p>
-            <!-- BEGIN EXAMPLE 1 -->
-            <div class="status-widget">
-                <div class="status-widget-wrapper">
-                    <div class="title">Project Title<a href="#" class="remove-widget"><i class="icon-custom-cross"></i></a></div>
-                    <p>Project Description</p>
-                </div>
-            </div>
-            <!-- END EXAMPLE 1 -->
-            <!-- END PROJECTS WIDGET -->
-        </div>
         <div class="clearfix"></div>
         <!-- END SIDEBAR WIDGETS -->
     </div>
@@ -122,9 +92,9 @@
     </div>
     <div class="pull-right">
         <div class="details-status">
-            <span data-animation-duration="560" data-value="86" class="animate-number"></span>%
+            Powered by very talented people
         </div>
-        <a href="#"><i class="fa fa-power-off"></i></a>
+        <a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-power-off"></i></a>
     </div>
 </div>
 <!-- END SIDEBAR FOOTER WIDGET -->

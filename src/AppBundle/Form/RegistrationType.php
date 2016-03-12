@@ -25,7 +25,8 @@ class RegistrationType extends AbstractType
             ->add('city', null, array(
                 'required' => false
             ))
-            ->add('language');
+            ->add('language')
+            ->add('learningLanguages');
     }
 
     public function getParent()

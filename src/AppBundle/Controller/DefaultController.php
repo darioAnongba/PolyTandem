@@ -17,7 +17,7 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/", name="video")
+     * @Route("/video", name="video")
      */
     public function videoAction(Request $request)
     {

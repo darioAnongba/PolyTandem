@@ -1,17 +1,94 @@
 {% extends 'base.html.twig' %}
 
 {% block pageContent %}
-    <!-- BEGIN PAGE CONTAINER-->
     <div class="page-content">
         <div class="content">
             <!-- BEGIN PAGE TITLE -->
-            <div class="page-title">
-                <h3>Coucou</h3>
-            </div>
+            <ul class="breadcrumb">
+                <li>
+                    <p>YOU ARE HERE<p>
+                    </p></li>
+                <li><a class="active" href="{{ path('homepage') }}">Homepage</a></li>
+            </ul>
             <!-- END PAGE TITLE -->
             <!-- BEGIN PlACE PAGE CONTENT HERE -->
+            <div class="col">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="grid simple">
+                            <div class="grid-title">
+                                <h4> <span class="semi-bold"> Welcome </span></h4>
+                            </div>
+                            <div class="grid-body">
+                                <h3><span class="semi-bold">Welcome on PolyTandem!</span></h3>
+                                <p>
+                                    PolyTandem is an online platform where you can meet people from all around the world and improve your skills in different languages!
+                                </p>
+                                <p>
+                                    A tandem partnership is two people who meet for mutual language practice. For example, a French person learning German could form a partnership with a German learning French. They might meet at a coffee shop once a week and spend half the time conversing in French and half in German, taking turns correcting each other's grammar, vocabulary, and pronunciation.
+                                    The focus is often on conversation, but with the right tandem partner you can work on anything you want -- writing, reading, dictation, official forms, or whatever each person needs. And you don't have to meet in person -- many people work with tandem partners by phone, Skype, email, or chat. And while it's usually an ongoing relationship, it can also be a short term arrangement to prepare for an exam, foreign work transfer, etc.
+                                </p>
+                                <div align="center">
+                                    <a href="#">
+                                        <img src="{{ asset('frontend/img/logo.png') }}" class="logo" alt="logo" data-src="{{ asset('frontend/img/logo.png') }}" data-src-retina="{{ asset('frontend/img/logo.png') }}" />
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class=" tiles white col-md-12 no-padding">
+                            <div class="tiles green cover-pic-wrapper">
+                                <img src="{{ asset('frontend/assets/img/cover_pic.png') }}" alt="cover">
+                            </div>
+                            <div class="tiles white">
+
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-3" >
+                                        <div class="user-mini-description">
+                                            <h3 class="text-success semi-bold">
+                                                {{ app.user.reputation }}
+                                            </h3>
+                                            <h5>your note</h5>
+                                            <h3 class="text-success semi-bold">
+                                                {{ app.user.numberOfVoters }}
+                                            </h3>
+                                            <h5>Voters</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 user-description-box  col-sm-5">
+                                        <h4 class="semi-bold no-margin">{{ app.user.firstName }} {{ app.user.lastName }}</h4>
+                                        <br>
+                                        <p><i class="fa fa-comment"></i>{{ app.user.language }}</p>
+                                        <p>
+                                            <i class="fa fa-comment-o"></i>
+                                            {% for language in app.user.learningLanguages %}
+                                                language.language
+                                                {% if not loop.last %}
+                                                    ,
+                                                {% endif %}
+                                            {% endfor %}
+                                        </p>
+                                        <p><i class="fa fa-gamepad"></i>Piano, Coding</p>
+                                        <p><i class="fa fa-briefcase"></i>Web Developer</p>
+                                        <p><i class="fa fa-globe"></i>www.google.com</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="grid simple">
+                            <div class="grid-body">
+                                <a class="btn btn-primary btn-lg btn-large btn-success" href="{{ path('') }}">Start a chat!</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <!-- END PLACE PAGE CONTENT HERE -->
         </div>
     </div>
-    <!-- END PAGE CONTAINER -->
 {% endblock %}

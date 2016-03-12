@@ -17,7 +17,6 @@
         <!-- BEGIN SIDEBAR MENU -->
         <p class="menu-title">BROWSE</p>
         <ul>
-            <!-- BEGIN SELECTED LINK -->
             <li {% block home_active %} {% endblock %}>
                 <a href="{{ path('homepage') }}">
                     <i class="icon-custom-home"></i>
@@ -25,23 +24,24 @@
                     <span class="selected"></span>
                 </a>
             </li>
-            <!-- END SELECTED LINK -->
-            <!-- BEGIN BADGE LINK -->
             <li {% block video_active %} {% endblock %}>
                 <a href="{{ path('video') }}">
                     <i class="fa fa-video-camera"></i>
                     <span class="title">Chat</span>
                 </a>
             </li>
-            <!-- END BADGE LINK -->
-            <!-- BEGIN SINGLE LINK -->
             <li {% block user_active %} {% endblock %}>
                 <a href="{{ path('user-profile') }}">
                     <i class="fa fa-user"></i>
                     <span class="title">Profile</span>
                 </a>
             </li>
-            <!-- END SINGLE LINK -->
+            <li {% block languages_active %} {% endblock %}>
+                <a href="{{ path('languages') }}">
+                    <i class="fa fa-flag"></i>
+                    <span class="title">My languages</span>
+                </a>
+            </li>
         </ul>
         <!-- END SIDEBAR MENU -->
         <!-- BEGIN SIDEBAR WIDGETS -->

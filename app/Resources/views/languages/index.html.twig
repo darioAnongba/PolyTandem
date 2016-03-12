@@ -1,0 +1,67 @@
+{% extends 'base.html.twig' %}
+
+{% block pageContent %}
+    <div class="page-content">
+        <div class="content">
+            <!-- BEGIN PAGE TITLE -->
+            <ul class="breadcrumb">
+                <li>
+                    <p>YOU ARE HERE<p>
+                    </p></li>
+                <li><a class="active" href="{{ path('homepage') }}">Homepage</a></li>
+                <li><a class="active">My languages</a></li>
+            </ul>
+
+            <div class="page-title"> <i class="icon-custom-home"></i>
+                <h3>My languages</h3>
+            </div>
+            <!-- END PAGE TITLE -->
+            <!-- BEGIN PlACE PAGE CONTENT HERE -->
+            <p><a class="btn btn-warning btn-cons" href="{{ path('newLanguage') }}">Add new language</a></p>
+
+            <div class="row">
+            <div class="col-md-12">
+                <div class="grid simple">
+                    <div class="grid-title">
+                        <h4>My languages</h4>
+                    </div>
+                    <div class="grid-body">
+                        {% for flashMessage in app.session.flashbag.get('notice') %}
+                            <div class="alert alert-success">
+                                <button data-dismiss="alert" class="close"></button>
+                                {{ flashMessage }}
+                            </div>
+                        {% endfor %}
+                        <table class="table table-bordered no-more-tables">
+                            <thead>
+                            <tr>
+                                <th class="text-center">Language</th>
+                                <th class="text-center">Points</th>
+                                <th class="text-center">Level</th>
+                                <th class="text-center">Discussions</th>
+                                <th class="text-center">Edit</th>
+                                <th class="text-center">Delete</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            {% for lang in app.user.learningLanguages %}
+                                <tr>
+                                    <td class="text-center">{{ lang.language }}</td>
+                                    <td class="text-center">{{ lang.points }}</td>
+                                    <td class="text-center">{{ lang.level }}</td>
+                                    <td class="text-center">5</td>
+                                    <td class="text-center"><a href="{{ path('homepage', {'id': lang.id}) }}"><span class="label label-warning">Edit</span></a></td>
+                                    <td class="text-center"><a href="{{ path('deleteLanguage', {'id': lang.id}) }}"><span class="label label-important">Delete</span></a></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- END PLACE PAGE CONTENT HERE -->
+        </div>
+    </div>
+{% endblock %}

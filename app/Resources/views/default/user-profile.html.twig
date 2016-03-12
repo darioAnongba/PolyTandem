@@ -46,47 +46,44 @@
                                     </div>
                                 </div>
                                 <div class="col-md-5 user-description-box  col-sm-5">
-                                    <h4 class="semi-bold no-margin">John Smith</h4>
-                                    <h6 class="no-margin">CEO of web-arch.co.uk</h6>
+                                    <h4 class="semi-bold no-margin">{{ app.user.firstname }} {{ app.user.lastname }}</h4>
                                     <br>
-                                    <p><i class="fa fa-briefcase"></i>UI & Graphic Design</p>
-                                    <p><i class="fa fa-globe"></i>www.google.com</p>
-                                    <p><i class="fa fa-file-o"></i>Download Resume</p>
-                                    <p><i class="fa fa-envelope"></i>Send Message</p>
+                                    <p><i class="fa fa-flag"></i>{{ app.user.language }}</p>
+                                    <p><i class="fa fa-globe"></i>{{ app.user.nationality }} ({{ app.user.city }})</p>
                                 </div>
                                 <div class="col-md-3  col-sm-3">
                                     <h5 class="normal">Friends ( <span class="text-success">1223</span> )</h5>
                                     <ul class="my-friends">
                                         <li><div class="profile-pic">
-                                                <img width="35" height="35" data-src-retina="assets/img/profiles/d2x.jpg" data-src="assets/img/profiles/d.jpg" src="assets/img/profiles/d.jpg" alt="">
+                                                <img width="35" height="35" data-src-retina="{{ asset('frontend/assets/img/profiles/d2x.jpg') }}" data-src="assets/img/profiles/d.jpg" src="assets/img/profiles/d.jpg" alt="">
                                             </div>
                                         </li>
                                         <li><div class="profile-pic">
-                                                <img width="35" height="35" data-src-retina="assets/img/profiles/c2x.jpg" data-src="assets/img/profiles/c.jpg" src="assets/img/profiles/c.jpg" alt="">
+                                                <img width="35" height="35" data-src-retina="{{ asset('frontend/assets/img/profiles/c2x.jpg') }}" data-src="assets/img/profiles/c.jpg" src="assets/img/profiles/c.jpg" alt="">
                                             </div>
                                         </li>
                                         <li><div class="profile-pic">
-                                                <img width="35" height="35" data-src-retina="assets/img/profiles/h2x.jpg" data-src="assets/img/profiles/h.jpg" src="assets/img/profiles/h.jpg" alt="">
+                                                <img width="35" height="35" data-src-retina="{{ asset('frontend/assets/img/profiles/h2x.jpg') }}" data-src="assets/img/profiles/h.jpg" src="assets/img/profiles/h.jpg" alt="">
                                             </div>
                                         </li>
                                         <li><div class="profile-pic">
-                                                <img width="35" height="35" data-src-retina="assets/img/profiles/avatar_small2x.jpg" data-src="assets/img/profiles/avatar_small.jpg" src="assets/img/profiles/avatar_small.jpg" alt="">
+                                                <img width="35" height="35" data-src-retina="{{ asset('frontend/assets/img/profiles/avatar_small2x.jpg') }}" data-src="assets/img/profiles/avatar_small.jpg" src="assets/img/profiles/avatar_small.jpg" alt="">
                                             </div>
                                         </li>
                                         <li><div class="profile-pic">
-                                                <img width="35" height="35" data-src-retina="assets/img/profiles/e2x.jpg" data-src="assets/img/profiles/e.jpg" src="assets/img/profiles/e.jpg" alt="">
+                                                <img width="35" height="35" data-src-retina="{{ asset('frontend/assets/img/profiles/e2x.jpg') }}" data-src="assets/img/profiles/e.jpg" src="assets/img/profiles/e.jpg" alt="">
                                             </div>
                                         </li>
                                         <li><div class="profile-pic">
-                                                <img width="35" height="35" data-src-retina="assets/img/profiles/b2x.jpg" data-src="assets/img/profiles/b.jpg" src="assets/img/profiles/b.jpg" alt="">
+                                                <img width="35" height="35" data-src-retina="{{ asset('frontend/assets/img/profiles/b2x.jpg') }}" data-src="assets/img/profiles/b.jpg" src="assets/img/profiles/b.jpg" alt="">
                                             </div>
                                         </li>
                                         <li><div class="profile-pic">
-                                                <img width="35" height="35" data-src-retina="assets/img/profiles/h2x.jpg" data-src="assets/img/profiles/h.jpg" src="assets/img/profiles/h.jpg" alt="">
+                                                <img width="35" height="35" data-src-retina="{{ asset('frontend/assets/img/profiles/h2x.jpg') }}" data-src="assets/img/profiles/h.jpg" src="assets/img/profiles/h.jpg" alt="">
                                             </div>
                                         </li>
                                         <li><div class="profile-pic">
-                                                <img width="35" height="35" data-src-retina="assets/img/profiles/d2x.jpg" data-src="assets/img/profiles/d.jpg" src="assets/img/profiles/d.jpg" alt="">
+                                                <img width="35" height="35" data-src-retina="{{ asset('frontend/assets/img/profiles/d2x.jpg') }}" data-src="assets/img/profiles/d.jpg" src="assets/img/profiles/d.jpg" alt="">
                                             </div>
                                         </li>
                                     </ul>
@@ -94,93 +91,7 @@
                                 </div>
                             </div>
 
-                            <div class="tiles-body">
-                                <div class="row">
-                                    <div class="post col-md-12">
-                                        <div class="user-profile-pic-wrapper">
-                                            <div class="user-profile-pic-normal">
-                                                <img width="35" height="35" data-src-retina="assets/img/profiles/c2x.jpg" data-src="assets/img/profiles/c.jpg" src="assets/img/profiles/c.jpg" alt="">
-                                            </div>
-                                        </div>
-                                        <div class="info-wrapper">
-                                            <div class="username">
-                                                <span class="dark-text">John Drake</span> in <span class="dark-text">nervada hotspot</span>
-                                            </div>
-                                            <div class="info">
-                                                Great design concepts by <span class="dark-text">John Smith</span> and his crew! Totally owned the WCG!, Best of luck for your future endeavours,
-                                                Special thanks for <span class="dark-text">Jane smith</span> for her motivation ;)
-                                            </div>
-                                            <div class="more-details">
-                                                <ul class="post-links">
-                                                    <li><a href="#" class="muted">2 Minutes ago</a></li>
-                                                    <li><a href="#" class="text-info">Collapse</a></li>
-                                                    <li><a href="#" class="text-info" ><i class="fa fa-reply"></i> Reply</a></li>
-                                                    <li><a href="#" class="text-warning"><i class="fa fa-star"></i> Favourited</a></li>
-                                                    <li><a href="#"  class="muted">More</a></li>
-                                                </ul>
-                                            </div>
-                                            <div class="clearfix"></div>
 
-                                            <ul class="action-bar">
-                                                <li><a href="#"  class="muted"><i class="fa fa-comment"></i> 1584</a> Comments</li>
-                                                <li><a href="#" class="text-error" ><i class="fa fa-heart"></i> 47k</a> likes</li>
-                                            </ul>
-                                            <div class="clearfix"></div>
-                                            <div class="post comments-section">
-                                                <div class="user-profile-pic-wrapper">
-                                                    <div class="user-profile-pic-normal">
-                                                        <img width="35" height="35" alt="" src="assets/img/profiles/e.jpg" data-src="assets/img/profiles/e.jpg" data-src-retina="assets/img/profiles/e2x.jpg">
-                                                    </div>
-                                                </div>
-                                                <div class="info-wrapper">
-                                                    <div class="username">
-                                                        <span class="dark-text">Thunderbolt</span>
-                                                    </div>
-                                                    <div class="info">
-                                                        Congrats, <span class="dark-text">John Smith</span>  & <span class="dark-text">Jane Smith</span>
-                                                    </div>
-                                                    <div class="more-details">
-                                                        <ul class="post-links">
-                                                            <li><a href="#" class="muted">2 Minutes ago</a></li>
-                                                            <li><a href="#" class="text-error" ><i class="fa fa-heart"></i> Like</a></li>
-                                                            <li><a href="#"  class="muted">Details</a></li>
-                                                        </ul>
-                                                    </div>
-
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                            <div class="post comments-section">
-                                                <div class="user-profile-pic-wrapper">
-                                                    <div class="user-profile-pic-normal">
-                                                        <img width="35" height="35" src="assets/img/profiles/h.jpg" data-src="assets/img/profiles/h.jpg" data-src-retina="assets/img/profiles/h2x.jpg" alt="">
-                                                    </div>
-                                                </div>
-                                                <div class="info-wrapper">
-                                                    <div class="username">
-                                                        <span class="dark-text">Thunderbolt</span>
-                                                    </div>
-                                                    <div class="info">
-                                                        Congrats, <span class="dark-text">John Smith</span>  & <span class="dark-text">Jane Smith</span>
-                                                    </div>
-                                                    <div class="more-details">
-                                                        <ul class="post-links">
-                                                            <li><a href="#" class="muted">2 Minutes ago</a></li>
-                                                            <li><a href="#" class="text-error" ><i class="fa fa-heart"></i> Like</a></li>
-                                                            <li><a href="#"  class="muted">Details</a></li>
-                                                        </ul>
-                                                    </div>
-
-                                                </div>
-                                                <div class="clearfix"></div>
-                                            </div>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                        <br>
-                                        <br>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -258,92 +169,7 @@
                     </div>
                     <br>
                     <br>
-                    <div class="row">
-                        <div class="post col-md-12">
-                            <div class="user-profile-pic-wrapper">
-                                <div class="user-profile-pic-normal">
-                                    <img width="35" height="35" src="assets/img/profiles/c.jpg" data-src="assets/img/profiles/c.jpg" data-src-retina="assets/img/profiles/c2x.jpg" alt="">
-                                </div>
-                            </div>
-                            <div class="info-wrapper">
-                                <div class="username">
-                                    <span class="dark-text">John Drake</span> in <span class="dark-text">nervada hotspot</span>
-                                </div>
-                                <div class="info">
-                                    Great design concepts by <span class="dark-text">John Smith</span> and his crew! Totally owned the WCG!, Best of luck for your future endeavours,
-                                    Special thanks for <span class="dark-text">Jane smith</span> for her motivation ;)
-                                </div>
-                                <div class="more-details">
-                                    <ul class="post-links">
-                                        <li><a href="#" class="muted">2 Minutes ago</a></li>
-                                        <li><a href="#" class="text-info">Collapse</a></li>
-                                        <li><a href="#" class="text-info" ><i class="fa fa-reply"></i> Reply</a></li>
-                                        <li><a href="#" class="text-warning"><i class="fa fa-star"></i> Favourited</a></li>
-                                        <li><a href="#"  class="muted">More</a></li>
-                                    </ul>
-                                </div>
-                                <div class="clearfix"></div>
 
-                                <ul class="action-bar">
-                                    <li><a href="#"  class="muted"><i class="fa fa-comment"></i> 1584</a> Comments</li>
-                                    <li><a href="#" class="text-error" ><i class="fa fa-heart"></i> 47k</a> likes</li>
-                                </ul>
-                                <div class="clearfix"></div>
-                                <div class="post comments-section">
-                                    <div class="user-profile-pic-wrapper">
-                                        <div class="user-profile-pic-normal">
-                                            <img width="35" height="35" data-src-retina="assets/img/profiles/e2x.jpg" data-src="assets/img/profiles/e.jpg" src="assets/img/profiles/e.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="info-wrapper">
-                                        <div class="username">
-                                            <span class="dark-text">Thunderbolt</span>
-                                        </div>
-                                        <div class="info">
-                                            Congrats, <span class="dark-text">John Smith</span>  & <span class="dark-text">Jane Smith</span>
-                                        </div>
-                                        <div class="more-details">
-                                            <ul class="post-links">
-                                                <li><a href="#" class="muted">2 Minutes ago</a></li>
-                                                <li><a href="#" class="text-error" ><i class="fa fa-heart"></i> Like</a></li>
-                                                <li><a href="#"  class="muted">Details</a></li>
-                                            </ul>
-                                        </div>
-
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="post comments-section">
-                                    <div class="user-profile-pic-wrapper">
-                                        <div class="user-profile-pic-normal">
-                                            <img width="35" height="35" data-src-retina="assets/img/profiles/b2x.jpg" data-src="assets/img/profiles/b.jpg" src="assets/img/profiles/b.jpg" alt="">
-                                        </div>
-                                    </div>
-                                    <div class="info-wrapper">
-                                        <div class="username">
-                                            <span class="dark-text">Thunderbolt</span>
-                                        </div>
-                                        <div class="info">
-                                            Congrats, <span class="dark-text">John Smith</span>  & <span class="dark-text">Jane Smith</span>
-                                        </div>
-                                        <div class="more-details">
-                                            <ul class="post-links">
-                                                <li><a href="#" class="muted">2 Minutes ago</a></li>
-                                                <li><a href="#" class="text-error" ><i class="fa fa-heart"></i> Like</a></li>
-                                                <li><a href="#"  class="muted">Details</a></li>
-                                            </ul>
-                                        </div>
-
-                                    </div>
-                                    <div class="clearfix"></div>
-                                </div>
-                                <div class="post comments-section">
-
-                                </div>
-                            </div>
-                            <div class="clearfix"></div>
-                        </div>
-                    </div>
                 </div>
             </div>
 

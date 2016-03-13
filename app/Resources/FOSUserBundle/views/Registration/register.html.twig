@@ -27,9 +27,6 @@
                         {{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
 
 
-
-
-                        <form class="animated fadeIn validate" id="" name="">
                             <div class="row form-row m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
                                 <div class="col-md-6 col-sm-6">
                                     {{ form_widget(form.email, {'attr': {'placeholder': 'Email'} }) }}
@@ -67,15 +64,13 @@
                                     {{ form_widget(form.language) }}
                                 </div>
                             </div>
-                        </form>
+                        
                         <div class="row p-t-10 m-l-20 m-r-20 xs-m-l-10 xs-m-r-10">
                             <div class="control-group col-md-10">
                                 <input type="submit" class="btn btn-success" value="Create" />
 
                             </div>
                         </div>
-
-                        {{ form_widget(form) }}
                     </div>
                 </div>
 

@@ -24,6 +24,8 @@ var _currentDropPiece;
 
 var _mouse;
 
+var path = "{{ asset('frontend/img/game1/set1/g1_1.png') }}";
+
 function init(ans){
 	answer = ans;
     _imgs = [];
@@ -31,8 +33,9 @@ function init(ans){
     	for (var j = 0; j < PUZZLE_H; j++) {
     		var img = new Image();
             img.addEventListener('load',onImage,false);
-            img.src = "img/game1/set" + SET_N + "/g1_" + (i + j * PUZZLE_W) + ".png";
-
+            //var path = ("frontend/img/game1/set" + SET_N + "/g1_" + (i + j * PUZZLE_W) + ".png");
+            //console.log(path);
+            img.src = path;
             _imgs[i + j * PUZZLE_W] = img;
     	}
     }

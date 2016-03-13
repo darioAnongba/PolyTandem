@@ -15,21 +15,91 @@
                     </div>
                 </div>
                 <div class="col-md-6">
-                    <div class="grid simple ">
-                        <div class="grid-title">
-                            <h4>Let's play a game ! </h4>
-                            <div class="tools"> <a href="javascript:;" class="collapse"></a> <a href="#grid-config" data-toggle="modal" class="config"></a> <a href="javascript:;" class="reload"></a> <a href="javascript:;" class="remove"></a> </div>
-                        </div>
-                        <div class="grid-body">
-                            <div class="scroller scrollbar-hidden" data-height="220px">
-                                <h3>Scroll is <span class="semi-bold">hidden</span></h3>
-                                <h4><span class="semi-bold">Open Me</span>, Light , <span class="semi-bold">Bold</span> , <i>Everything</i></h4>
-                                <p>The overflow is clipped, and the rest of the content will be invisible, Play it ». scroll, The overflow is clipped, but a scroll-bar is added to see the rest of the </p>
-                                <p> default, the textarea element comes with a vertical scrollbar (and maybe even a horizontal scrollbar). This vertical scrollbar enables the user to continue entering and reviewing their text (by scrolling up and down).</p>
-                                <p>The scroll event is sent to an element when the user scrolls to a different place in the element. It applies to window objects, but also to scrollable frames and elements with the overflow CSS property set to scroll (or auto when the element's explicit height or width is less than the height or width of its contents).</p>
+                    <ul class="nav nav-pills" role="tablist">
+                      <li class="active">
+                        <a href="#tab4TandemProfile" role="tab" data-toggle="tab">Profile's Tandem</a>
+                      </li>
+                      <li>
+                        <a href="#tab4WrittenChat" role="tab" data-toggle="tab" class="active">Written Chat</a>
+                      </li>
+                      <li>
+                        <a href="#tab4IMGGame" role="tab" data-toggle="tab">Game IMG</a>
+                      </li>
+                      <li>
+                        <a href="#tab4StoryGame" role="tab" data-toggle="tab">Game Story</a>
+                      </li>
+                    </ul>
+                  <div class="tab-content">
+                    <div class="tab-pane active" id="tab4TandemProfile">
+                        <div class=" tiles white col-md-12 no-padding">
+                            <div class="tiles green cover-pic-wrapper">
+                                <img src="{{ asset('frontend/assets/img/cover_pic.png') }}" alt="cover">
+                            </div>
+                            <div class="tiles white">
+
+                                <div class="row">
+                                    <div class="col-md-3 col-sm-3" >
+                                        <div class="user-mini-description">
+                                            <h3 class="text-success semi-bold">
+                                                {{ app.user.reputation }}
+                                            </h3>
+                                            <h5>your note</h5>
+                                            <h3 class="text-success semi-bold">
+                                                {{ app.user.numberOfVoters }}
+                                            </h3>
+                                            <h5>Voters</h5>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-8 user-description-box  col-sm-5">
+                                        <h4 class="semi-bold no-margin">{{ app.user.firstName }} {{ app.user.lastName }}</h4>
+                                        <br>
+                                        <p><i class="fa fa-comment"></i>{{ app.user.language }}</p>
+                                        <p>
+                                            <i class="fa fa-comment-o"></i>
+                                            {% for language in app.user.learningLanguages %}
+                                                language.language
+                                                {% if not loop.last %}
+                                                    ,
+                                                {% endif %}
+                                            {% endfor %}
+                                        </p>
+                                        <p><i class="fa fa-gamepad"></i>Piano, Coding</p>
+                                        <p><i class="fa fa-briefcase"></i>Web Developer</p>
+                                        <p><i class="fa fa-globe"></i>www.google.com</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+                    <div class="tab-pane" id="tab4WrittenChat">
+                        <h3>NEED A CHAT HERE!</h3>
+                        <!--
+
+                            CODE FOR A WRITTEN CHAT    
+
+                        -->
+                    </div>
+                    <div class="tab-pane " id="tab4IMGGame">
+                      <div class="row">
+                            <script src="{{ asset('frontend/assets/js/imgGame.js') }}"></script>
+                            <body onload="init();">
+                                <canvas id="canvas"></canvas>
+                            </body>
+                      </div>
+                    </div>
+                    <div class="tab-pane " id="tab4StoryGame">
+                      <div class="row">
+                        <div class="col-md-12">
+                          <h3>Follow us & get updated!</h3>
+                          <p>Instantly connect to what's most important to you. Follow your friends, experts, favorite celebrities, and breaking news.</p>
+                          <br>
+                          <p><a href="#" class="btn-social"><i class="icon-facebook"></i></a> <a href="#" class="btn-social"><i class="icon-twitter"></i> </a> <a href="#" class="btn-social"><i class="icon-dribbble"></i></a> <a href="#" class="btn-social"><i class="icon-pinterest-sign"></i></a> <a href="#" class="btn-social"><i class="icon-tumblr"></i> </a> <a href="#" class="btn-social"><i class="icon-linkedin-sign"></i> </a> </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 </div>
             </div>
             <!-- END PLACE PAGE CONTENT HERE -->

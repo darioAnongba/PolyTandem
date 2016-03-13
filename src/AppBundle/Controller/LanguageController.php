@@ -26,9 +26,9 @@ class LanguageController extends Controller
      */
     public function newLanguageAction(Request $request)
     {
-        $link = new LearningLanguage($this->getUser());
+        $lang = new LearningLanguage($this->getUser());
 
-        $form = $this->createFormBuilder($link)
+        $form = $this->createFormBuilder($lang)
             ->add('level', ChoiceType::class, array(
                 'choices' => LearningLanguage::getLevels()))
             ->add('language')
@@ -38,7 +38,7 @@ class LanguageController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
-            $em->persist($link);
+            $em->persist($lang);
             $em->flush();
 
             $this->addFlash('notice', 'New language added');
@@ -53,7 +53,7 @@ class LanguageController extends Controller
     /**
      * @Route("/delete/{id}", name="deleteLanguage")
      */
-    public function deleteLinkAction($id)
+    public function deleteLanguageAction($id)
     {
         $repo = $this->getDoctrine()->getManager()->getRepository('AppBundle:LearningLanguage');
         $lang = $repo->find($id);

@@ -1,6 +1,12 @@
 {% extends 'base.html.twig' %}
 
 {% block pageContent %}
+    {% embed 'sidebar.html.twig' %}
+        {% block languages_active %}
+            class="active"
+        {% endblock %}
+    {%  endembed %}
+
     <div class="page-content">
         <div class="content">
             <!-- BEGIN PAGE TITLE -->

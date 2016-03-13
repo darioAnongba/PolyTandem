@@ -8,6 +8,9 @@
         {% endblock %}
     {%  endembed %}
 
+<script src="{{ asset('frontend/assets/js/imgGame.js') }}"></script>
+<script src="{{ asset('frontend/assets/js/storyGame.js') }}"></script>
+
     <!-- BEGIN PAGE CONTAINER-->
 
     <div class="page-content">
@@ -87,20 +90,18 @@
                     </div>
                     <div class="tab-pane " id="tab4IMGGame">
                       <div class="row">
-                            <script src="{{ asset('frontend/assets/js/imgGame.js') }}"></script>
-                            <body onload="init();">
+                            
+                            <body onload="init_imgGame(1);">
                                 <canvas id="canvas"></canvas>
                             </body>
                       </div>
                     </div>
                     <div class="tab-pane " id="tab4StoryGame">
                       <div class="row">
-                        <div class="col-md-12">
-                          <h3>Follow us & get updated!</h3>
-                          <p>Instantly connect to what's most important to you. Follow your friends, experts, favorite celebrities, and breaking news.</p>
-                          <br>
-                          <p><a href="#" class="btn-social"><i class="icon-facebook"></i></a> <a href="#" class="btn-social"><i class="icon-twitter"></i> </a> <a href="#" class="btn-social"><i class="icon-dribbble"></i></a> <a href="#" class="btn-social"><i class="icon-pinterest-sign"></i></a> <a href="#" class="btn-social"><i class="icon-tumblr"></i> </a> <a href="#" class="btn-social"><i class="icon-linkedin-sign"></i> </a> </p>
-                        </div>
+                            
+                            <body onload="init_storyGame();">
+                                <canvas id="canvas"></canvas>
+                            </body>
                       </div>
                     </div>
                   </div>

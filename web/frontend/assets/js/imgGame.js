@@ -24,21 +24,25 @@ var _currentDropPiece;
 
 var _mouse;
 
-var path = "{{ asset('frontend/img/game1/set1/g1_1.png') }}";
+function init_imgGame(ans){
 
-function init(ans){
+    delete window.foo;
+    delete window.cleanup;
+
 	answer = ans;
     _imgs = [];
     for (var i = 0; i < PUZZLE_W; i++) {
     	for (var j = 0; j < PUZZLE_H; j++) {
     		var img = new Image();
             img.addEventListener('load',onImage,false);
-            //var path = ("frontend/img/game1/set" + SET_N + "/g1_" + (i + j * PUZZLE_W) + ".png");
-            //console.log(path);
-            img.src = path;
+            var path = (SET_N + "/g1_" + (i + j * PUZZLE_W) + ".png");
+            img.src = "../../../frontend/img/game1/set" + path;
             _imgs[i + j * PUZZLE_W] = img;
     	}
     }
+
+    document.onmousedown = onPuzzleClick_imgGame;
+    document.onmousemove = updatePuzzle_imgGame;
 }
 function onImage(e){
     _pieceWidth = IMG_W;
@@ -69,17 +73,7 @@ function initPuzzle(){
     buildPieces();
     shufflePuzzle();
 }
-function createTitle(msg){
-    _stage.fillStyle = "#000000";
-    _stage.globalAlpha = .4;
-    _stage.fillRect(100,_puzzleHeight - 40,_puzzleWidth - 200,40);
-    _stage.fillStyle = "#FFFFFF";
-    _stage.globalAlpha = 1;
-    _stage.textAlign = "center";
-    _stage.textBaseline = "middle";
-    _stage.font = "20px Arial";
-    _stage.fillText(msg,_puzzleWidth / 2,_puzzleHeight - 20);
-}
+
 function buildPieces(){
     var i;
     var piece;
@@ -119,10 +113,9 @@ function shufflePuzzle(){
             yPos += _pieceHeight;
         }
     }
-    document.onmousedown = onPuzzleClick;
-    document.onmousemove = updatePuzzle;
+    
 }
-function onPuzzleClick(e){
+function onPuzzleClick_imgGame(e){
     if(e.layerX || e.layerX == 0){
         _mouse.x = e.layerX - _canvas.offsetLeft;
         _mouse.y = e.layerY - _canvas.offsetTop;
@@ -131,9 +124,10 @@ function onPuzzleClick(e){
         _mouse.x = e.offsetX - _canvas.offsetLeft;
         _mouse.y = e.offsetY - _canvas.offsetTop;
     }
-    _currentPieceIndex = checkPieceClicked();
-
-    checkWin(_currentPieceIndex);
+    _currentPiece = checkPieceClicked();
+    if(_currentPiece.n != null){
+        checkWin(_currentPiece.n);
+    }
 }
 
 function checkPieceClicked(){
@@ -145,13 +139,13 @@ function checkPieceClicked(){
             //PIECE NOT HIT
         }
         else{
-            return piece.n;
+            return piece;
         }
     }
     return null;
 }
 
-function updatePuzzle(e){
+function updatePuzzle_imgGame(e){
 	if(e.layerX || e.layerX == 0){
         _mouse.x = e.layerX - _canvas.offsetLeft;
         _mouse.y = e.layerY - _canvas.offsetTop;
@@ -184,9 +178,9 @@ function updatePuzzle(e){
 function checkWin(ans){
     
     if(ans == answer){
-    	alert("WINNER!");
+    	//alert("WINNER!");
     }else{
-		alert("LOSER!");
+		//alert("LOSER!");
     }
 }
 

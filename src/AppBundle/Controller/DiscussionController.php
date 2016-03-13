@@ -2,11 +2,8 @@
 
 namespace AppBundle\Controller;
 
-use AppBundle\Entity\LearningLanguage;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\HttpFoundation\Request;
 
 /**
  * @Route("/discussions")
@@ -16,7 +13,7 @@ class DiscussionController extends Controller
     /**
      * @Route("/", name="discussions")
      */
-    public function indexAction(Request $request)
+    public function indexAction()
     {
         $repo = $this->getDoctrine()->getManager()->getRepository('AppBundle:Discussion');
         $discussions = $repo->findBy(['host' => $this->getUser()]);

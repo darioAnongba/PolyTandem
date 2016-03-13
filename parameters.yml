@@ -1,0 +1,12 @@
+# This file is auto-generated during the composer install
+parameters:
+    database_host: mbsx.myd.infomaniak.com
+    database_port: null
+    database_name: mbsx_polytandem
+    database_user: mbsx_webmaster
+    database_password: J9TLT27GMONU
+    mailer_transport: gmail
+    mailer_host: ~
+    mailer_user: dario.anongba@gmail.com
+    mailer_password: hmjppadyjwezkvfw
+    secret: 283986a4a4ad42b63621e211b4b78eb944a60d4e

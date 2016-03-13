@@ -15,7 +15,7 @@
     <link href="{{ asset('frontend/assets/plugins/animate.min.css') }}" rel="stylesheet" type="text/css"/>
     <link href="{{ asset('frontend/assets/plugins/jquery-scrollbar/jquery.scrollbar.css') }}" rel="stylesheet" type="text/css"/>
     <!-- END PLUGIN CSS -->
-    {% block innerJS %}{% endblock %}
+
     <!-- BEGIN CORE CSS FRAMEWORK -->
     <link href="{{ asset('frontend/webarch/css/webarch.css') }}" rel="stylesheet" type="text/css"/>
     <!-- END CORE CSS FRAMEWORK -->
@@ -39,7 +39,23 @@
     <!-- END CONTENT -->
 
     {% block javascripts %}
-        {% include 'javascripts.html.twig' %}
+        <!-- BEGIN CORE JS FRAMEWORK-->
+        <script src="{{ asset('frontend/assets/plugins/pace/pace.min.js') }}" type="text/javascript"></script>
+        <!-- BEGIN JS DEPENDECENCIES-->
+        <script src="{{ asset('frontend/assets/plugins/jquery/jquery-1.11.3.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('frontend/assets/plugins/bootstrapv3/js/bootstrap.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('frontend/assets/plugins/jquery-block-ui/jqueryblockui.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('frontend/assets/plugins/jquery-unveil/jquery.unveil.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('frontend/assets/plugins/jquery-scrollbar/jquery.scrollbar.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('frontend/assets/plugins/jquery-numberAnimate/jquery.animateNumbers.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('frontend/assets/plugins/jquery-validation/js/jquery.validate.min.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('frontend/assets/plugins/bootstrap-select2/select2.min.js') }}" type="text/javascript"></script>
+
+        {% block innerJS %}{% endblock %}
+
+        <!-- BEGIN CORE TEMPLATE JS -->
+        <script src="{{ asset('frontend/webarch/js/webarch.js') }}" type="text/javascript"></script>
+        <script src="{{ asset('frontend/assets/js/chat.js') }}" type="text/javascript"></script>
     {% endblock %}
 
     </body>

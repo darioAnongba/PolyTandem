@@ -17,106 +17,154 @@
                 <div class="col-md-6">
                     <div class="grid simple">
                         <!-- FIX ME: scale the grid -->
-                        <iframe id="iframe_id" src="https://apprtc.appspot.com/r/{{ discussion.videoID }}" width=100% height=500> </iframe>
+                        <iframe id="iframe_id" src="https://apprtc.appspot.com/r/{{ discussion.videoID }}" width="100%" height="500">
+                            Your browser doesn't allow iframes
+                        </iframe>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <ul class="nav nav-pills" role="tablist">
-                      <li class="active">
-                        <a href="#tab4TandemProfile" role="tab" data-toggle="tab">Profile's Tandem</a>
-                      </li>
-                      <li>
-                        <a href="#tab4WrittenChat" role="tab" data-toggle="tab" class="active">Written Chat</a>
-                      </li>
-                      <li>
-                        <a href="#tab4IMGGame" role="tab" data-toggle="tab">Game IMG</a>
-                      </li>
-                      <li>
-                        <a href="#tab4StoryGame" role="tab" data-toggle="tab">Game Story</a>
-                      </li>
-                    </ul>
-                  <div class="tab-content">
-                    <div class="tab-pane active" id="tab4TandemProfile">
-                        <div class=" tiles white col-md-12 no-padding">
-                            <div class="tiles green cover-pic-wrapper">
-                                <img src="{{ asset('frontend/assets/img/cover_pic.png') }}" alt="cover" height="250">
-                            </div>
-                            <div class="tiles white">
-                                {% if isConnected %}
-                                    {% set otherGuy = discussion.host  %}
-                                {% else %}
-                                    {% set otherGuy = discussion.guest  %}
-                                {% endif %}
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-3" >
-                                        <div class="user-mini-description">
-                                            <h3 class="text-success semi-bold">
-                                                {{ otherGuy.reputation }}
-                                            </h3>
-                                            <h5>Note</h5>
+                {% if isConnected %}
+                    {% set otherGuy = discussion.host %}
+                    <div class="col-md-6">
+                        <ul class="nav nav-pills" role="tablist">
+                            <li class="active">
+                                <a href="#tab4TandemProfile" role="tab" data-toggle="tab">Profile's Tandem</a>
+                            </li>
+                            <li>
+                                <a href="#tab4WrittenChat" role="tab" data-toggle="tab" class="active">Written Chat</a>
+                            </li>
+                            <li>
+                                <a href="#tab4IMGGame" role="tab" data-toggle="tab">Game IMG</a>
+                            </li>
+                            <li>
+                                <a href="#tab4StoryGame" role="tab" data-toggle="tab">Game Story</a>
+                            </li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="tab4TandemProfile">
+                                <div class=" tiles white col-md-12 no-padding">
+                                    <div class="tiles green cover-pic-wrapper">
+                                        <img src="{{ asset('frontend/assets/img/cover_pic.png') }}" alt="cover" height="250">
+                                    </div>
+                                    <div class="tiles white">
+                                        <div class="row">
+                                            <div class="col-md-3 col-sm-3" >
+                                                <div class="user-mini-description">
+                                                    <h3 class="text-success semi-bold">
+                                                        {{ otherGuy.reputation }}
+                                                    </h3>
+                                                    <h5>Note</h5>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-8 user-description-box  col-sm-5">
+                                                <h4 class="semi-bold no-margin">{{ otherGuy.firstName }} {{ otherGuy.lastName }}</h4>
+                                                <br>
+                                                <p><i class="fa fa-comment"></i>{{ otherGuy.language }}</p>
+                                                <p>
+                                                    <i class="fa fa-comment-o"></i>
+                                                    {% for language in otherGuy.learningLanguages %}
+                                                        language.language
+                                                        {% if not loop.last %}
+                                                            ,
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </p>
+                                                <p><i class="fa fa-gamepad"></i>Piano, Coding</p>
+                                                <p><i class="fa fa-briefcase"></i>Web Developer</p>
+                                                <p><i class="fa fa-globe"></i>www.google.com</p>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-8 user-description-box  col-sm-5">
-                                        <h4 class="semi-bold no-margin">{{ otherGuy.firstName }} {{ otherGuy.lastName }}</h4>
+                                </div>
+                            </div>
+                            <div class="tab-pane" id="tab4WrittenChat">
+                                <h3>NEED A CHAT HERE!</h3>
+                                <!--
+
+                                    CODE FOR A WRITTEN CHAT
+                                -->
+                                {{ dump(discussion) }}
+                            </div>
+                            <div class="tab-pane " id="tab4IMGGame">
+                                <div class="row">
+                                    <script src="{{ asset('frontend/assets/js/imgGame.js') }}"></script>
+                                    <body onload="init();">
+                                    <canvas id="canvas"></canvas>
+                                    </body>
+                                </div>
+                            </div>
+                            <div class="tab-pane " id="tab4StoryGame">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h3>Follow us & get updated!</h3>
+                                        <p>Instantly connect to what's most important to you. Follow your friends, experts, favorite celebrities, and breaking news.</p>
                                         <br>
-                                        <p><i class="fa fa-comment"></i>{{ otherGuy.language }}</p>
-                                        <p>
-                                            <i class="fa fa-comment-o"></i>
-                                            {% for language in otherGuy.learningLanguages %}
-                                                language.language
-                                                {% if not loop.last %}
-                                                    ,
-                                                {% endif %}
-                                            {% endfor %}
-                                        </p>
-                                        <p><i class="fa fa-gamepad"></i>Piano, Coding</p>
-                                        <p><i class="fa fa-briefcase"></i>Web Developer</p>
-                                        <p><i class="fa fa-globe"></i>www.google.com</p>
+                                        <p><a href="#" class="btn-social"><i class="icon-facebook"></i></a> <a href="#" class="btn-social"><i class="icon-twitter"></i> </a> <a href="#" class="btn-social"><i class="icon-dribbble"></i></a> <a href="#" class="btn-social"><i class="icon-pinterest-sign"></i></a> <a href="#" class="btn-social"><i class="icon-tumblr"></i> </a> <a href="#" class="btn-social"><i class="icon-linkedin-sign"></i> </a> </p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="tab-pane" id="tab4WrittenChat">
-                        <h3>NEED A CHAT HERE!</h3>
-                        <!--
-
-                            CODE FOR A WRITTEN CHAT    
-                        -->
-                        {{ dump(discussion) }}
+                {% else %}
+                    <div class="col-md-6" id="panel" data-id="{{ discussion.id }}">
+                        Searching for a tandem... <br>
+                        <img src="{{ asset('frontend/img/loader.gif') }}" alt="loader">
                     </div>
-                    <div class="tab-pane " id="tab4IMGGame">
-                      <div class="row">
-                            <script src="{{ asset('frontend/assets/js/imgGame.js') }}"></script>
-                            <body onload="init();">
-                                <canvas id="canvas"></canvas>
-                            </body>
-                      </div>
-                    </div>
-                    <div class="tab-pane " id="tab4StoryGame">
-                      <div class="row">
-                        <div class="col-md-12">
-                          <h3>Follow us & get updated!</h3>
-                          <p>Instantly connect to what's most important to you. Follow your friends, experts, favorite celebrities, and breaking news.</p>
-                          <br>
-                          <p><a href="#" class="btn-social"><i class="icon-facebook"></i></a> <a href="#" class="btn-social"><i class="icon-twitter"></i> </a> <a href="#" class="btn-social"><i class="icon-dribbble"></i></a> <a href="#" class="btn-social"><i class="icon-pinterest-sign"></i></a> <a href="#" class="btn-social"><i class="icon-tumblr"></i> </a> <a href="#" class="btn-social"><i class="icon-linkedin-sign"></i> </a> </p>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                {% endif %}
 
                 </div>
             </div>
             <!-- END PLACE PAGE CONTENT HERE -->
         </div>
-    </div>
     <!-- END PAGE CONTAINER -->
 {% endblock %}
 
-
-
 {% block innerJS %}
+    <script>
+        $(document).ready(function () {
+            var connected = false;
 
+            {% if isConnected %}
+                connected = true;
+            {% endif %}
+
+            if(!connected) {
+                refresh();
+            }
+        });
+
+        function refresh(){
+            var field = $('#panel');
+            var id = field.attr('data-id');
+
+            $.ajax({
+                type: "POST",
+                url: "{{ path('tandem-refresh') }}",
+                data: {id: id},
+                success: function (response) {
+                    if(response.success) {
+                        success(field, response.view);
+                    }
+                    else {
+                        error(field);
+                    }
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    alert('Big error : This is shit');
+                },
+                dataType: 'json'
+            });
+        }
+
+        function success(field, view) {
+            field.html(view);
+        }
+
+        function error(field) {
+            setTimeout(function(){
+                refresh();
+            }, 1000);
+        }
+
+    </script>
 {% endblock %}
 

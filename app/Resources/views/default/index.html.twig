@@ -26,9 +26,6 @@
                 <div class="row">
                     <div class="col-md-8">
                         <div class="grid simple">
-                            <div class="grid-title">
-                                <h4> <span class="semi-bold"> Welcome </span></h4>
-                            </div>
                             <div class="grid-body">
                                 <h3><span class="semi-bold">Welcome on PolyTandem!</span></h3>
                                 <p>
@@ -38,10 +35,8 @@
                                     A tandem partnership is two people who meet for mutual language practice. For example, a French person learning German could form a partnership with a German learning French. They might meet at a coffee shop once a week and spend half the time conversing in French and half in German, taking turns correcting each other's grammar, vocabulary, and pronunciation.
                                     The focus is often on conversation, but with the right tandem partner you can work on anything you want -- writing, reading, dictation, official forms, or whatever each person needs. And you don't have to meet in person -- many people work with tandem partners by phone, Skype, email, or chat. And while it's usually an ongoing relationship, it can also be a short term arrangement to prepare for an exam, foreign work transfer, etc.
                                 </p>
-                                <div>
-                                    <a href="#">
-                                        <img width="600" src="{{ asset('frontend/img/logo.png') }}" class="logo" alt="logo" data-src="{{ asset('frontend/img/logo.png') }}" data-src-retina="{{ asset('frontend/img/logo.png') }}" />
-                                    </a>
+                                <div class="center-text">
+                                    <img width="300" src="{{ asset('frontend/img/logo.png') }}" class="logo" alt="logo" data-src="{{ asset('frontend/img/logo.png') }}" data-src-retina="{{ asset('frontend/img/logo.png') }}" />
                                 </div>
                             </div>
                         </div>
@@ -49,7 +44,7 @@
                     <div class="col-md-4">
                         <div class=" tiles white col-md-12 no-padding">
                             <div class="tiles green cover-pic-wrapper">
-                                <img src="{{ asset('frontend/assets/img/cover_pic.png') }}" alt="cover">
+                                <img src="{{ asset('frontend/assets/img/cover_pic.png') }}" alt="cover" height="150">
                             </div>
                             <div class="tiles white">
 
@@ -90,9 +85,24 @@
                 </div>
                 <div class="row">
                     <div class="col-md-8">
-                        <div class="grid simple">
+                        <div class="grid simple ">
                             <div class="grid-body">
-                                <a class="btn btn-primary btn-lg btn-large btn-success" href="{{ path('video') }}">Start a chat!</a>
+                                <form action="{{ path('tandem-live') }}" method="post">
+                                    <h3>Let's start a <span class="semi-bold">chat ! </span></h3>
+                                    <br>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p>Which language would you like to improve ?</p>
+                                                <select id="source" style="width:100%">
+                                                    {% for language in app.user.learningLanguages %}
+                                                        <option value="{{ language.language }}">{{ language.language }}</option>
+                                                    {% endfor %}
+                                                </select>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <input type="submit" class="btn btn-primary btn-cons btn-block" value="Find a chatter"/>
+                                </form>
                             </div>
                         </div>
                     </div>

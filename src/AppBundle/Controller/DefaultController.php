@@ -17,19 +17,10 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/video", name="video")
+     * @Route("/tandem-live", name="tandem-live")
      */
-    public function videoAction(Request $request)
+    public function tandemLiveAction(Request $request)
     {
-        return $this->render('default/video.html.twig', []);
-    }
-
-    /**
-     * @Route("/video-live", name="video-live")
-     */
-    public function videoLiveAction(Request $request)
-    {
-
         return $this->render('default/video-live.html.twig', []);
     }
 

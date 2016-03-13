@@ -1,0 +1,14 @@
+{% extends "base.html.twig" %}
+
+{% block header %} {% endblock %}
+
+{% trans_default_domain 'FOSUserBundle' %}
+
+{% block title %}Demo Application{% endblock %}
+
+{% block body %}
+    <div class="row login-container animated fadeInUp">
+    {% block fos_user_content %}{% endblock %}
+    </div>
+    {% include 'javascripts.html.twig' %}
+{% endblock %}

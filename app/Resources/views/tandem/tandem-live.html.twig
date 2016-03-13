@@ -16,8 +16,12 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="grid simple">
-                        <!-- FIX ME: scale the grid -->
-                        <iframe id="iframe_id" src="https://apprtc.appspot.com/r/{{ discussion.videoID }}" width=100% height=500> </iframe>
+                        {% if isConnected %}
+                            <iframe id="iframe_id" src="https://apprtc.appspot.com/r/{{ discussion.videoID }}" width=100% height=500> </iframe>
+                        {% else %}
+                            <div class="tiles white" style="background-color: #D1D0CE; height: 500px">
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
                 <div class="col-md-6">
@@ -38,43 +42,57 @@
                 <div class="tab-content">
                     <div class="tab-pane active" id="tab4TandemProfile">
                         <div class=" tiles white col-md-12 no-padding">
-                            <div class="tiles green cover-pic-wrapper">
-                                <img src="{{ asset('frontend/assets/img/cover_pic.png') }}" alt="cover" height="250">
-                            </div>
-                            <div class="tiles white">
-                                {% if isConnected %}
-                                    {% set otherGuy = discussion.host  %}
-                                {% else %}
-                                    {% set otherGuy = discussion.guest  %}
-                                {% endif %}
-                                <div class="row">
-                                    <div class="col-md-3 col-sm-3" >
-                                        <div class="user-mini-description">
-                                            <h3 class="text-success semi-bold">
-                                                {{ otherGuy.reputation }}
-                                            </h3>
-                                            <h5>Note</h5>
+                            {% if isConnected %}
+                                <div class="tiles green cover-pic-wrapper">
+                                    <img src="{{ asset('frontend/assets/img/cover_pic.png') }}" alt="cover" height="250">
+                                </div>
+                                <div class="tiles white">
+                                    {% if isConnected %}
+                                        {% set otherGuy = discussion.host  %}
+                                    {% else %}
+
+                                        {#{% set otherGuy = discussion.guest  %}#}
+                                    {% endif %}
+                                    <div class="row">
+                                        <div class="col-md-3 col-sm-3" >
+
+                                                <div class="user-mini-description">
+                                                    <h3 class="text-success semi-bold">
+                                                        {{ otherGuy.reputation }}
+                                                    </h3>
+                                                    <h5>Note</h5>
+                                                </div>
+
+                                        </div>
+
+                                        <div class="col-md-8 user-description-box  col-sm-5">
+                                                <h4 class="semi-bold no-margin">{{ otherGuy.firstName }} {{ otherGuy.lastName }}</h4>
+                                                <br>
+                                                <p><i class="fa fa-comment"></i>{{ otherGuy.language }}</p>
+                                                <p>
+                                                    <i class="fa fa-comment-o"></i>
+                                                    {% for language in otherGuy.learningLanguages %}
+                                                        language.language
+                                                        {% if not loop.last %}
+                                                            ,
+                                                        {% endif %}
+                                                    {% endfor %}
+                                                </p>
+                                                <p><i class="fa fa-gamepad"></i>Piano, Coding</p>
+                                                <p><i class="fa fa-briefcase"></i>Web Developer</p>
+                                                <p><i class="fa fa-globe"></i>www.google.com</p>
                                         </div>
                                     </div>
-                                    <div class="col-md-8 user-description-box  col-sm-5">
-                                        <h4 class="semi-bold no-margin">{{ otherGuy.firstName }} {{ otherGuy.lastName }}</h4>
-                                        <br>
-                                        <p><i class="fa fa-comment"></i>{{ otherGuy.language }}</p>
-                                        <p>
-                                            <i class="fa fa-comment-o"></i>
-                                            {% for language in otherGuy.learningLanguages %}
-                                                language.language
-                                                {% if not loop.last %}
-                                                    ,
-                                                {% endif %}
-                                            {% endfor %}
-                                        </p>
-                                        <p><i class="fa fa-gamepad"></i>Piano, Coding</p>
-                                        <p><i class="fa fa-briefcase"></i>Web Developer</p>
-                                        <p><i class="fa fa-globe"></i>www.google.com</p>
-                                    </div>
                                 </div>
-                            </div>
+                            {% else %}
+                                <div class="tiles white" >
+                                    <center>
+                                        <img src="{{ asset('frontend/img/loadingGif.gif') }}" alt="cover" height="250">
+                                    </center>
+
+                                </div>
+                            {% endif %}
+
                         </div>
                     </div>
                     <div class="tab-pane" id="tab4WrittenChat">

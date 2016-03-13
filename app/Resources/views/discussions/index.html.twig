@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block pageContent %}
+    {% embed 'sidebar.html.twig' %}
+        {% block discussions_active %}
+            class="active"
+        {% endblock %}
+    {%  endembed %}
+
+    <div class="page-content">
+        <div class="content">
+            <!-- BEGIN PAGE TITLE -->
+            <ul class="breadcrumb">
+                <li>
+                    <p>YOU ARE HERE<p>
+                    </p></li>
+                <li><a class="active" href="{{ path('homepage') }}">Homepage</a></li>
+                <li><a class="active">My discussions</a></li>
+            </ul>
+
+            <div class="page-title"> <i class="icon-custom-home"></i>
+                <h3>My languages</h3>
+            </div>
+            <!-- END PAGE TITLE -->
+            <!-- BEGIN PlACE PAGE CONTENT HERE -->
+            <div class="row">
+            <div class="col-md-12">
+                <div class="grid simple">
+                    <div class="grid-title">
+                        <h4>My discussions</h4>
+                    </div>
+                    <div class="grid-body">
+                        {% for flashMessage in app.session.flashbag.get('notice') %}
+                            <div class="alert alert-success">
+                                <button data-dismiss="alert" class="close"></button>
+                                {{ flashMessage }}
+                            </div>
+                        {% endfor %}
+                        <table class="table table-bordered no-more-tables">
+                            <thead>
+                            <tr>
+                                <th class="text-center">Language</th>
+                                <th class="text-center">Guest</th>
+                                <th class="text-center">Guest name</th>
+                                <th class="text-center">Language of host</th>
+                                <th class="text-center">Delete</th>
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                            {% for disc in discussions %}
+                                <tr>
+                                    <td class="text-center">{{ disc.hostLearns }}</td>
+                                    <td class="text-center">{{ disc.guest }}</td>
+                                    <td class="text-center">{{ disc.guest.firstName }} {{ disc.guest.lastName }}</td>
+                                    <td class="text-center">{{ disc.host.language }}</td>
+                                    <td class="text-center"><a href="{{ path('deleteDiscussion', {'id': disc.id}) }}"><span class="label label-important">Delete</span></a></td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+            <!-- END PLACE PAGE CONTENT HERE -->
+        </div>
+    </div>
+{% endblock %}

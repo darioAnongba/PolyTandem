@@ -9,11 +9,6 @@
     {%  endembed %}
 
     <!-- BEGIN PAGE CONTAINER-->
-
-    <script src="{{ asset('frontend/assets/js/imgGame.js') }}"></script>
-
-    <script src="{{ asset('frontend/assets/js/storyGame.js') }}"></script>
-
     <div class="page-content">
         <div class="content">
             <!-- BEGIN PAGE TITLE -->
@@ -88,10 +83,8 @@
                     <div class="tab-pane" id="tab4WrittenChat">
                         <h3>NEED A CHAT HERE!</h3>
                         <!--
-
                             CODE FOR A WRITTEN CHAT    
                         -->
-                        {{ dump(discussion) }}
                     </div>
                     <div class="tab-pane" id="tab4IceBreaker">
                         <h3>Break the <span class="semi-bold">ice</span> with your tandem:</h3>
@@ -116,9 +109,7 @@
                     </div>
                     <div class="tab-pane " id="tab4StoryGame">
                       <div class="row">
-                            <body>
-                                <canvas id="canvasStory"></canvas>
-                            </body>
+                          <canvas id="canvasStory"></canvas>
                       </div>
                     </div>
                   </div>
@@ -171,6 +162,9 @@
 {% endblock %}
 
 {% block innerJS %}
+    <script src="{{ asset('frontend/assets/js/imgGame.js') }}"></script>
+    <script src="{{ asset('frontend/assets/js/storyGame.js') }}"></script>
+
     <script>
         $(document).ready(function () {
             var connected = false;

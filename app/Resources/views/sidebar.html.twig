@@ -24,12 +24,6 @@
                     <span class="selected"></span>
                 </a>
             </li>
-            {#<li {% block video_active %} {% endblock %}>
-                <a href="{{ path('tandem') }}">
-                    <i class="fa fa-video-camera"></i>
-                    <span class="title">Chat</span>
-                </a>
-            </li>#}
             <li {% block user_active %} {% endblock %}>
                 <a href="{{ path('user-profile') }}">
                     <i class="fa fa-user"></i>
@@ -40,6 +34,12 @@
                 <a href="{{ path('languages') }}">
                     <i class="fa fa-flag"></i>
                     <span class="title">My languages</span>
+                </a>
+            </li>
+            <li {% block discussions_active %} {% endblock %}>
+                <a href="{{ path('discussions') }}">
+                    <i class="fa fa-flag"></i>
+                    <span class="title">My discussions</span>
                 </a>
             </li>
         </ul>

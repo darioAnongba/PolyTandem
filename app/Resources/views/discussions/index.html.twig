@@ -49,6 +49,7 @@
 
                             <tbody>
                             {% for disc in discussions %}
+                                {% if disc.guest != NULL %}
                                 <tr>
                                     <td class="text-center">{{ disc.hostLearns }}</td>
                                     <td class="text-center">{{ disc.guest }}</td>
@@ -56,6 +57,7 @@
                                     <td class="text-center">{{ disc.host.language }}</td>
                                     <td class="text-center"><a href="{{ path('deleteDiscussion', {'id': disc.id}) }}"><span class="label label-important">Delete</span></a></td>
                                 </tr>
+                                {% endif %}
                             {% endfor %}
                             </tbody>
                         </table>

@@ -3,8 +3,8 @@ const PUZZLE_H = 2;
 
 const SET_N = 1;
 
-const IMG_W = 205;
-const IMG_H = 205;
+const IMG_W = 235;
+const IMG_H = 235;
 
 const PUZZLE_HOVER_TINT = '#80dfff';
 

@@ -25,19 +25,21 @@
                 </div>
                 <div class="col-md-6">
                     <ul class="nav nav-pills" role="tablist">
+                      
                       <li class="active">
-                        <a href="#tab4TandemProfile" role="tab" data-toggle="tab">Profile's Tandem</a>
+                        <a href="#tab4TandemProfile" role="tab" data-toggle="tab" onclick="cleanupGames();">Profile's Tandem</a>
                       </li>
                       <li>
-                        <a href="#tab4WrittenChat" role="tab" data-toggle="tab" class="active">Written Chat</a>
+                        <a href="#tab4WrittenChat" role="tab" data-toggle="tab" class="active" onclick="cleanupGames();">Written Chat</a>
                       </li>
                       <li>
-                        <a href="#tab4IMGGame" role="tab" data-toggle="tab">Game IMG</a>
+                        <a href="#tab4IMGGame" role="tab" data-toggle="tab" onclick="init_imgGame();">Game IMG</a>
                       </li>
                       <li>
-                        <a href="#tab4StoryGame" role="tab" data-toggle="tab">Game Story</a>
+                        <a href="#tab4StoryGame" role="tab" data-toggle="tab" onclick="init_storyGame();">Game Story</a>
                       </li>
                     </ul>
+                    
                   <div class="tab-content">
                     <div class="tab-pane active" id="tab4TandemProfile">
                         <div class=" tiles white col-md-12 no-padding">
@@ -91,16 +93,17 @@
                     <div class="tab-pane " id="tab4IMGGame">
                       <div class="row">
                             
-                            <body onload="init_imgGame(1);">
-                                <canvas id="canvas"></canvas>
+                            <body>
+                                <canvas id="canvasIMG"></canvas>
                             </body>
+                            
                       </div>
                     </div>
                     <div class="tab-pane " id="tab4StoryGame">
                       <div class="row">
                             
-                            <body onload="init_storyGame();">
-                                <canvas id="canvas"></canvas>
+                            <body>
+                                <canvas id="canvasStory"></canvas>
                             </body>
                       </div>
                     </div>

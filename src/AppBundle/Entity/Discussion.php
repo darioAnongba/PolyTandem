@@ -66,11 +66,17 @@ class Discussion
     /**
      * @var string
      *
-     * @ORM\Column(name="state", type="string")
-     * @Assert\NotNull()
+     * @ORM\Column(name="state", type="string", nullable=true)
      */
     protected $state;
 
+
+    public function __construct(User $host, $hostSpeaks, $hostLearns)
+    {
+        $this->host = $host;
+        $this->hostSpeaks = $hostSpeaks;
+        $this->hostLearns = $hostLearns;
+    }
 
     /**
      * Get id

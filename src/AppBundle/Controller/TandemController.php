@@ -2,6 +2,7 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\Discussion;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -18,7 +19,8 @@ class TandemController extends Controller
     {
         $learn = $request->request->get('learn');
 
-        $repo = $this->getDoctrine()->getManager()->getRepository('AppBundle:Discussion');
+        $em = $this->getDoctrine()->getManager();
+        $repo = $em->getRepository('AppBundle:Discussion');
         $discussion = $repo->findOneBy([
             'guest' => null,
             'hostSpeaks' => $learn,
@@ -31,12 +33,19 @@ class TandemController extends Controller
 
             return $this->render('tandem/tandem-live.html.twig', [
                 'discussion' => $discussion,
+                'isConnected' => true
             ]);
         }
 
+        $discussion = new Discussion($this->getUser(), $this->getUser()->getLanguage(), $learn);
+
+        $em->persist($discussion);
+        $em->flush();
+
         return $this->render('tandem/tandem-live.html.twig', [
             'discussion' => $discussion,
-            'learn' => $learn
+            'learn' => $learn,
+            'isConnected' => false
         ]);
     }
 

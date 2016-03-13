@@ -9,8 +9,11 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
 use Symfony\Component\Form\Extension\Core\Type\CountryType;
+use Symfony\Component\Form\Extension\Core\Type\LanguageType;
 use Symfony\Component\Form\FormBuilderInterface;
+use Symfony\Component\Validator\Constraints\Language;
 
 class RegistrationType extends AbstractType
 {
@@ -19,11 +22,15 @@ class RegistrationType extends AbstractType
         $builder
             ->add('firstName')
             ->add('lastName')
-            ->add('nationality', CountryType::class)
+            ->add('nationality', CountryType::class, array(
+                'placeholder' => 'Nationality',
+            ))
             ->add('city', null, array(
                 'required' => false
             ))
-            ->add('language');
+            ->add('language', LanguageType::class, array(
+                'placeholder' => 'Spoken Language',
+            ));
     }
 
     public function getParent()

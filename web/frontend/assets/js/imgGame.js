@@ -37,6 +37,8 @@ function cleanupGames(){
 
 function init_imgGame(ans){
     cleanupGames();
+
+    console.log("Init img game!");
 	answer_imgGame = ans;
     _imgs_imgGame = [];
     for (var i = 0; i < PUZZLE_W_imgGame; i++) {

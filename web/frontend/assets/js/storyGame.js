@@ -24,8 +24,8 @@ var _currentDropPiece;
 var _mouse;
 
 function init_storyGame(){
-    cleanupGames()
-
+    cleanupGames();
+    console.log("Init story game!");
     _imgs = [];
     for (var i = 0; i < PUZZLE_W; i++) {
     	for (var j = 0; j < PUZZLE_H; j++) {

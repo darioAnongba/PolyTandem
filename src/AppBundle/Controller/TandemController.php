@@ -83,4 +83,23 @@ class TandemController extends Controller
 
         return new JsonResponse($output);
     }
+
+    /**
+     * @Route("/delete", name="tandem-delete")
+     */
+    public function deleteAction(Request $request)
+    {
+        $em = $this->getDoctrine()->getManager();
+
+        $repository = $em->getRepository('AppBundle:Discussion');
+        $discussions = $repository->findBy(['guest' => null]);
+
+        foreach ($discussions as $discussion) {
+            $em->remove($discussion);
+        }
+
+        $em->flush();
+
+        return $this->redirectToRoute('homepage');
+    }
 }

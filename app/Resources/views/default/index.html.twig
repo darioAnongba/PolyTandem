@@ -68,7 +68,7 @@
                                         <p>
                                             <i class="fa fa-comment-o"></i>
                                             {% for language in app.user.learningLanguages %}
-                                                language.language
+                                                {{ language.language }}
                                                 {% if not loop.last %}
                                                     ,
                                                 {% endif %}

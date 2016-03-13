@@ -46,7 +46,7 @@ class LearningLanguage
      *
      * @ORM\Column(name="points", type="integer")
      * @Assert\Type(type="integer")
-     * @Assert\NotBlank()
+     * @Assert\NotNull()
      */
     protected $points;
 
@@ -58,8 +58,20 @@ class LearningLanguage
      */
     protected $level;
 
+    public function __construct(User $user)
+    {
+        $this->points = 0;
+        $this->user = $user;
+    }
+
     public static function getLevels () {
-        return array('a1', 'a2', 'b1', 'b2', 'c1', 'c2');
+        return array(
+            'A1' => 'a1',
+            'A2' => 'a2',
+            'B1' => 'b1',
+            'B2' => 'b2',
+            'C1' => 'c1',
+            'C2' => 'c2');
     }
     
 

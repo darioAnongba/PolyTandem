@@ -1,6 +1,13 @@
 {% extends 'base.html.twig' %}
 
 {% block pageContent %}
+
+    {% embed 'sidebar.html.twig' %}
+        {% block video_active %}
+            class="active"
+        {% endblock %}
+    {%  endembed %}
+
     <!-- BEGIN PAGE CONTAINER-->
 
     <div class="page-content">
@@ -108,11 +115,9 @@
     <!-- END PAGE CONTAINER -->
 {% endblock %}
 
-{% block video_active %}
-    class="active"
-{% endblock %}
+
 
 {% block innerJS %}
-    
+
 {% endblock %}
 

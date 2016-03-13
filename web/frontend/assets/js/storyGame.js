@@ -145,7 +145,7 @@ function checkPieceClicked(){
     var piece;
     for(i = 0;i < _pieces.length;i++){
         piece = _pieces[i];
-        if(_mouse.x < piece.xPos || _mouse.x > (piece.xPos + _pieceWidth) || _mouse.y < piece.yPos || _mouse.y > (piece.yPos + _pieceHeight)){
+        if(_mouse.x < 25 || _mouse.y < 25 || _mouse.x < piece.xPos || _mouse.x > (piece.xPos + _pieceWidth) || _mouse.y < piece.yPos || _mouse.y > (piece.yPos + _pieceHeight)){
             //PIECE NOT HIT
         }
         else{
@@ -154,8 +154,6 @@ function checkPieceClicked(){
     }
     return null;
 }
-
-
 
 function updatePuzzle_storyGame(e){
     _currentDropPiece = null;
@@ -180,7 +178,7 @@ function updatePuzzle_storyGame(e){
         
         _stage.strokeRect(piece.xPos, piece.yPos, _pieceWidth,_pieceHeight);
         if(_currentDropPiece == null){
-            if(_mouse.x < piece.xPos || _mouse.x > (piece.xPos + _pieceWidth) || _mouse.y < piece.yPos || _mouse.y > (piece.yPos + _pieceHeight)){
+            if(_mouse.x < 25 || _mouse.y < 25 || _mouse.x < piece.xPos || _mouse.x > (piece.xPos + _pieceWidth) || _mouse.y < piece.yPos || _mouse.y > (piece.yPos + _pieceHeight)){
                 //NOT OVER
             }
             else{
@@ -217,26 +215,25 @@ function pieceDropped(e){
 function resetPuzzleAndCheckWin(){
     _stage.clearRect(0,0,_puzzleWidth,_puzzleHeight);
     var gameWin = true;
-    var i;
     var piece;
-    for(i = 0;i < _pieces.length;i++){
-        piece = _pieces[i];
+    console.log("leng:" +  PUZZLE_W * PUZZLE_H);
+    for(var ii = 0; ii < PUZZLE_W * PUZZLE_H; ii++){
+        piece = _pieces[ii];
         _stage.drawImage(piece.img,0, 0, _pieceWidth, _pieceHeight, piece.xPos, piece.yPos, _pieceWidth, _pieceHeight);
         _stage.strokeRect(piece.xPos, piece.yPos, _pieceWidth,_pieceHeight);
         if(piece.xPos != piece.sx || piece.yPos != piece.sy){
             gameWin = false;
         }
     }
+    console.log(gameWin);
     if(gameWin){
-    	alert("WINNER!");
-        setTimeout(gameOver,500);
+        $('#winModal').modal();
     }
 }
 function gameOver(){
     document.onmousedown = null;
     document.onmousemove = null;
     document.onmouseup = null;
-    initPuzzle();
 }
 
 function shuffleArray(o){

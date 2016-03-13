@@ -30,6 +30,9 @@ function cleanupGames(){
     document.onmousemove = null;
     document.onmousedown = null;
     document.onmouseup = null;
+
+    _pieces_imgGame = [];
+    _pieces = []
 }
 
 function init_imgGame(ans){
@@ -144,7 +147,7 @@ function checkPieceClicked_imgGame(){
     var piece;
     for(i = 0;i < _pieces_imgGame.length;i++){
         piece = _pieces_imgGame[i];
-        if(_mouse_imgGame.x < piece.xPos || _mouse_imgGame.x > (piece.xPos + _pieceWidth_imgGame) || _mouse_imgGame.y < piece.yPos || _mouse_imgGame.y > (piece.yPos + _pieceHeight_imgGame)){
+        if(_mouse_imgGame.x < 25 || _mouse_imgGame.y < 25 || _mouse_imgGame.x < piece.xPos || _mouse_imgGame.x > (piece.xPos + _pieceWidth_imgGame) || _mouse_imgGame.y < piece.yPos || _mouse_imgGame.y > (piece.yPos + _pieceHeight_imgGame)){
             //PIECE NOT HIT
         }
         else{
@@ -164,17 +167,18 @@ function updatePuzzle_imgGame(e){
         _mouse_imgGame.y = e.offsetY - _canvas_imgGame.offsetTop;
     }
 	_stage_imgGame.clearRect(0,0,_puzzleWidth_imgGame,_puzzleHeight_imgGame);
-    for(i = 0;i < _pieces_imgGame.length;i++){
+    for(var i = 0;i < _pieces_imgGame.length;i++){
         piece = _pieces_imgGame[i];
         //_stage_imgGame.drawImage(peice.img, piece.sx, piece.sy, _pieceWidth_imgGame, _pieceHeight_imgGame, piece.xPos, piece.yPos, _pieceWidth_imgGame, _pieceHeight_imgGame);
         _stage_imgGame.drawImage(piece.img, 0, 0, _pieceWidth_imgGame, _pieceHeight_imgGame, piece.xPos, piece.yPos, _pieceWidth_imgGame, _pieceHeight_imgGame);
         
         _stage_imgGame.strokeRect(piece.xPos, piece.yPos, _pieceWidth_imgGame,_pieceHeight_imgGame);
         
-        if(_mouse_imgGame.x < piece.xPos || _mouse_imgGame.x > (piece.xPos + _pieceWidth_imgGame) || _mouse_imgGame.y < piece.yPos || _mouse_imgGame.y > (piece.yPos + _pieceHeight_imgGame)){
+        if(_mouse_imgGame.x < 25 || _mouse_imgGame.y < 25 || _mouse_imgGame.x < piece.xPos || _mouse_imgGame.x > (piece.xPos + _pieceWidth_imgGame) || _mouse_imgGame.y < piece.yPos || _mouse_imgGame.y > (piece.yPos + _pieceHeight_imgGame)){
             //NOT OVER
         }
         else{
+            console.log(_mouse_imgGame.x + " -- " + _mouse_imgGame.y)
             _stage_imgGame.save();
             _stage_imgGame.globalAlpha = .4;
             _stage_imgGame.fillStyle = PUZZLE_HOVER_TINT_imgGame;
@@ -185,11 +189,10 @@ function updatePuzzle_imgGame(e){
 }
 
 function checkWin_imgGame(ans){
-    
     if(ans == answer_imgGame){
-    	alert("WINNER!");
+    	$('#winModal').modal();
     }else{
-		alert("LOSER!");
+        $('#loseModal').modal();
     }
 }
 

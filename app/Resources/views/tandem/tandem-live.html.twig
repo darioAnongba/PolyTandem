@@ -27,16 +27,19 @@
                     <ul class="nav nav-pills" role="tablist">
                       
                       <li class="active">
-                        <a href="#tab4TandemProfile" role="tab" data-toggle="tab" onclick="cleanupGames();">Profile's Tandem</a>
+                        <a href="#tab4TandemProfile" role="tab" data-toggle="tab" onclick="cleanupGames();"><i class="fa fa-user"></i> Profile's Tandem</a>
                       </li>
                       <li>
-                        <a href="#tab4WrittenChat" role="tab" data-toggle="tab" class="active" onclick="cleanupGames();">Written Chat</a>
+                        <a href="#tab4WrittenChat" role="tab" data-toggle="tab" class="active" onclick="cleanupGames();"><i class="fa fa-comment"></i> Written Chat</a>
                       </li>
                       <li>
-                        <a href="#tab4IMGGame" role="tab" data-toggle="tab" onclick="init_imgGame();">Game IMG</a>
+                        <a href="#tab4IceBreaker" role="tab" data-toggle="tab" onclick="init_storyGame();"><i class="fa fa-bolt"></i> Ice Breaker</a>
                       </li>
                       <li>
-                        <a href="#tab4StoryGame" role="tab" data-toggle="tab" onclick="init_storyGame();">Game Story</a>
+                        <a href="#tab4IMGGame" role="tab" data-toggle="tab" onclick="init_imgGame(1);"><i class="fa fa-gamepad"></i> Game IMG</a>
+                      </li>
+                      <li>
+                        <a href="#tab4StoryGame" role="tab" data-toggle="tab" onclick="init_storyGame();"><i class="fa fa-gamepad"></i> Game Story</a>
                       </li>
                     </ul>
                     
@@ -90,9 +93,21 @@
                         -->
                         {{ dump(discussion) }}
                     </div>
+                    <div class="tab-pane" id="tab4IceBreaker">
+                        <h3>Break the <span class="semi-bold">ice</span> with your tandem:</h3>
+                          <button type="button" class="btn btn-default btn-block"><i class="fa fa-glass"></i> Tell me about your weekend! </button>
+                          <button type="button" class="btn btn-primary btn-block"><i class="fa fa-gamepad"></i> Describe me your house </button>
+                          <button type="button" class="btn btn-success btn-block"><i class="fa fa-umbrella"></i> How is the weather at your place today? </button>
+                          <button type="button" class="btn btn-info btn-block"><i class="fa fa-cutlery"></i> What's your favorite meal? </button>
+                           <button type="button" class="btn btn-warning btn-block"><i class="fa fa-music"></i> What kind of music do you like? </button>
+                          <button type="button" class="btn btn-danger btn-block"><i class="fa fa-suitcase"></i> What's your dream job?</button>
+
+                          <button type="button" class="btn btn-default btn-block"><i class="fa fa-plane"></i> Where would you like to spend your next vacations? </button>
+                           <button type="button" class="btn btn-primary btn-block"><i class="fa fa-gift"></i> What do you wish the most as a present for Christmas? </button>
+                          <button type="button" class="btn btn-warning btn-block"><i class="fa fa-road"></i> Do you like driving? </button>
+                    </div>
                     <div class="tab-pane " id="tab4IMGGame">
                       <div class="row">
-                            
                             <body>
                                 <canvas id="canvasIMG"></canvas>
                             </body>
@@ -101,13 +116,46 @@
                     </div>
                     <div class="tab-pane " id="tab4StoryGame">
                       <div class="row">
-                            
                             <body>
                                 <canvas id="canvasStory"></canvas>
                             </body>
                       </div>
                     </div>
                   </div>
+                  <!-- Modal -->
+                  <div class="modal fade" id="winModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                          <br>
+                          <i class="fa fa-star fa-7x"></i>
+                          <h4 id="myModalLabel" class="semi-bold">You win!</h4>
+                          <p class="no-margin">50 points added to your English skills! </p>
+                          <br>
+                        </div>
+                      </div>
+                      <!-- /.modal-content -->
+                    </div>
+                    </div>  
+                    <div class="modal fade" id="loseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                          <br>
+                          <i class="fa fa-frown-o fa-7x"></i>
+                          <h4 id="myModalLabel" class="semi-bold">You lose!</h4>
+                          <p class="no-margin"> Try again! You will do better next time! </p>
+                          <br>
+                        </div>
+                      </div>
+                      <!-- /.modal-content -->
+                    </div>
+                    <!-- /.modal-dialog -->
+                  </div>
+                  <!-- /.modal -->
+
                 </div>
 
                 </div>

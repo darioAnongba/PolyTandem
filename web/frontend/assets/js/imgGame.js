@@ -67,6 +67,9 @@ function onImage_imgGame(e){
 
 function setCanvas_imgGame(){
     _canvas_imgGame = document.getElementById('canvasIMG');
+    
+    _canvas_imgGame.style.width ='100%';
+    _canvas_imgGame.style.height='100%';
     _stage_imgGame = _canvas_imgGame.getContext('2d');
     _canvas_imgGame.width = _puzzleWidth_imgGame;
     _canvas_imgGame.height = _puzzleHeight_imgGame;

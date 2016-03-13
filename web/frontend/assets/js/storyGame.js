@@ -3,8 +3,8 @@ const PUZZLE_H = 2;
 
 const SET_N = 1;
 
-const IMG_W = 255;
-const IMG_H = 255;
+const IMG_W = 205;
+const IMG_H = 205;
 
 const PUZZLE_HOVER_TINT = '#80dfff';
 
@@ -56,6 +56,8 @@ function onImage(e){
 
 function setCanvas(){
     _canvas = document.getElementById('canvasStory');
+    _canvas.style.width ='100%';
+    _canvas.style.height='100%';
     _stage = _canvas.getContext('2d');
     _canvas.width = _puzzleWidth;
     _canvas.height = _puzzleHeight;

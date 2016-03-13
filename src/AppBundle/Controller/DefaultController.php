@@ -23,4 +23,12 @@ class DefaultController extends Controller
     {
         return $this->render('default/user-profile.html.twig', []);
     }
+
+    /**
+     * @Route("/friends", name="friends")
+     */
+    public function friendsAction(Request $request)
+    {
+        return $this->render('default/friends.html.twig', []);
+    }
 }

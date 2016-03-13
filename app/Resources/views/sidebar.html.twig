@@ -31,10 +31,12 @@
                 </a>
             </li>#}
             <li {% block user_active %} {% endblock %}>
-                <a href="{{ path('user-profile') }}">
-                    <i class="fa fa-user"></i>
-                    <span class="title">Profile</span>
-                </a>
+                <a href="">
+                    <i class="fa fa-user"></i> <span class="title">Profile</span> <span class=" arrow" ></span> </a>
+                <ul class="sub-menu">
+                    <li > <a href="{{ path('user-profile') }}">Profile </a> </li>
+                    <li > <a href="{{ path('friends') }}">Friends</a> </li>
+                </ul>
             </li>
             <li {% block languages_active %} {% endblock %}>
                 <a href="{{ path('languages') }}">

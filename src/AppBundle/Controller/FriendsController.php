@@ -19,6 +19,7 @@ class FriendsController extends Controller
     public function indexAction(Request $request)
     {
         $repo = $this->getDoctrine()->getManager()->getRepository('AppBundle:User');
+
         $users = $repo->findAll();
 
         return $this->render(':default:friends.html.twig', [

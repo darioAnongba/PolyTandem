@@ -27,10 +27,9 @@ class Discussion
     protected $id;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="video_id", type="integer")
-     * @Assert\Type(type="integer")
+     * @ORM\Column(name="video_id", type="string")
      */
     protected $videoID;
 
@@ -90,14 +89,21 @@ class Discussion
      */
     public function setVideoID()
     {
-        $this->videoID = rand(100000000, 900000000);
+        $length = 10;
+        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        $charactersLength = strlen($characters);
+        $randomString = '';
+        for ($i = 0; $i < $length; $i++) {
+            $randomString .= $characters[rand(0, $charactersLength - 1)];
+        }
+        $this->videoID = $randomString;
         return $this;
     }
 
     /**
      * Get videoID
      *
-     * @return integer
+     * @return string
      */
     public function getVideoID()
     {
@@ -201,28 +207,4 @@ class Discussion
         return $this->guest;
     }
     
-
-    /**
-     * Set hostLearns
-     *
-     * @param string $hostLearns
-     *
-     * @return Discussion
-     */
-    public function setHostLearns($hostLearns)
-    {
-        $this->hostLearns = $hostLearns;
-
-        return $this;
-    }
-
-    /**
-     * Get hostLearns
-     *
-     * @return string
-     */
-    public function getHostLearns()
-    {
-        return $this->hostLearns;
-    }
 }

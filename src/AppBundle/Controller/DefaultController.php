@@ -17,14 +17,6 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/tandem-live", name="tandem-live")
-     */
-    public function tandemLiveAction(Request $request)
-    {
-        return $this->render('default/video-live.html.twig', []);
-    }
-
-    /**
      * @Route("/user-profile", name="user-profile")
      */
     public function userProfileAction(Request $request)

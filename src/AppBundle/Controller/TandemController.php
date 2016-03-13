@@ -12,11 +12,32 @@ use Symfony\Component\HttpFoundation\Request;
 class TandemController extends Controller
 {
     /**
-     * @Route("/", name="tandem")
+     * @Route("/live", name="tandem-live")
      */
-    public function indexAction(Request $request)
+    public function tandemLiveAction(Request $request)
     {
-        return $this->render('tandem/index.html.twig', []);
+        $learn = $request->request->get('learn');
+
+        $repo = $this->getDoctrine()->getManager()->getRepository('AppBundle:Discussion');
+        $discussion = $repo->findOneBy([
+            'guest' => null,
+            'hostSpeaks' => $learn,
+            'hostLearns' => $this->getUser()->getLanguage()
+        ]);
+
+        if($discussion !== null)
+        {
+            $discussion->setGuest($this->getUser());
+
+            return $this->render('tandem/tandem-live.html.twig', [
+                'discussion' => $discussion,
+            ]);
+        }
+
+        return $this->render('tandem/tandem-live.html.twig', [
+            'discussion' => $discussion,
+            'learn' => $learn
+        ]);
     }
 
 }

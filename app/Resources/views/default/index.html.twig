@@ -93,7 +93,7 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <p>Which language would you like to improve ?</p>
-                                                <select id="source" style="width:100%">
+                                                <select name="learn" id="source" style="width:100%">
                                                     {% for language in app.user.learningLanguages %}
                                                         <option value="{{ language.language }}">{{ language.language }}</option>
                                                     {% endfor %}

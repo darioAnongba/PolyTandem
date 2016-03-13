@@ -26,7 +26,7 @@
                     <div class="col-md-6">
                         <ul class="nav nav-pills" role="tablist">
                           <li class="active">
-                            <a href="#tab4TandemProfile" role="tab" data-toggle="tab" onclick="cleanupGames();"><i class="fa fa-user"></i> Profile's Tandem</a>
+                            <a href="#tab4TandemProfile" role="tab" data-toggle="tab" onclick="cleanupGames()"><i class="fa fa-user"></i> Profile's Tandem</a>
                           </li>
                           <li>
                             <a href="#tab4WrittenChat" role="tab" data-toggle="tab" class="active" onclick="cleanupGames();"><i class="fa fa-comment"></i> Written Chat</a>
@@ -35,10 +35,10 @@
                             <a href="#tab4IceBreaker" role="tab" data-toggle="tab" onclick="init_storyGame();"><i class="fa fa-bolt"></i> Ice Breaker</a>
                           </li>
                           <li>
-                            <a href="#tab4IMGGame" role="tab" data-toggle="tab" onclick="init_imgGame(1);"><i class="fa fa-gamepad"></i> Game IMG</a>
+                            <a href="#tab4IMGGame" role="tab" data-toggle="tab" onclick="openGame1()"><i class="fa fa-gamepad"></i> Game IMG</a>
                           </li>
                           <li>
-                            <a href="#tab4StoryGame" role="tab" data-toggle="tab" onclick="init_storyGame();"><i class="fa fa-gamepad"></i> Game Story</a>
+                            <a href="#tab4StoryGame" role="tab" data-toggle="tab" onclick="openGame2();"><i class="fa fa-gamepad"></i> Game Story</a>
                           </li>
                         </ul>
                         <div class="tab-content">
@@ -101,10 +101,7 @@
                     </div>
                     <div class="tab-pane " id="tab4IMGGame">
                       <div class="row">
-                            <body>
                                 <canvas id="canvasIMG"></canvas>
-                            </body>
-                            
                       </div>
                     </div>
                     <div class="tab-pane " id="tab4StoryGame">
@@ -113,7 +110,7 @@
                       </div>
                     </div>
                   </div>
-                  <!-- Modal -->
+                  <!-- WIN -->
                   <div class="modal fade" id="winModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -126,9 +123,9 @@
                           <br>
                         </div>
                       </div>
-                      <!-- /.modal-content -->
+                      <!-- LOSE -->
                     </div>
-                    </div>  
+                    </div>
                     <div class="modal fade" id="loseModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
                       <div class="modal-content">
@@ -141,8 +138,40 @@
                           <br>
                         </div>
                       </div>
-                      <!-- /.modal-content -->
+                      </div>
+                      </div>
+                       <!-- GAME 01 -->
+                      <div class="modal fade" id="game1Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                          <br>
+                          <i class="fa fa-gamepad fa-7x"></i>
+                          <h4 id="myModalLabel" class="semi-bold"> The pictures game!</h4>
+                          <p class="no-margin"> Your tandem will describe a picture, guess which one and click on it! </p>
+                          <br>
+                        </div>
+                      </div>
+                     
                     </div>
+                    </div>
+                    <!-- GAME 02 -->
+                      <div class="modal fade" id="game2Modal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                          <br>
+                          <i class="fa fa-gamepad fa-7x"></i>
+                          <h4 id="myModalLabel" class="semi-bold"> The story game!</h4>
+                          <p class="no-margin"> Your tandem will tell you a story, move the pictures in the right order! </p>
+                          <br>
+                        </div>
+                      </div>
+                     
+                    </div>
+                    </div>  
                     <!-- /.modal-dialog -->
                   </div>
                   <!-- /.modal -->
@@ -164,7 +193,16 @@
 {% block innerJS %}
     <script src="{{ asset('frontend/assets/js/imgGame.js') }}"></script>
     <script src="{{ asset('frontend/assets/js/storyGame.js') }}"></script>
-
+    <script>
+        function openGame1(){
+            init_imgGame(1);
+            $('#game1Modal').modal();
+        }     
+        function openGame2(){
+            init_storyGame();
+            $('#game2Modal').modal();
+        }     
+    </script>
     <script>
         $(document).ready(function () {
             var connected = false;
